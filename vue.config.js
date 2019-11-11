@@ -1,5 +1,5 @@
 module.exports = {
   lintOnSave: false,
   outputDir: "docs",
-  publicPath: "/"
+  publicPath: "/ellaparsons.design/"
 }
