@@ -24,12 +24,15 @@ img {
 
 body {
   background: url("/img/marble-background.png") no-repeat center center fixed $grey-200;
-  background-size: cover;
   color: $grey-900;
   font-family: "Playfair Display", Georgia, Palatino, serif;
   font-size: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media (min-width: 1920px), (min-height: 1080px) {
+    background-size: cover;
+  }
 }
 
 h1,
