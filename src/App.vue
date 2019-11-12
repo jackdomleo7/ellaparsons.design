@@ -1,16 +1,17 @@
 <template>
   <div id="app">
+    <top-app-bar></top-app-bar>
     <router-view/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import TopAppBar from '@/components/TopAppBar.vue';
 
 @Component({
   components: {
-    HelloWorld,
+    TopAppBar,
   },
 })
 export default class App extends Vue {}
