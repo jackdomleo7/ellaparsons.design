@@ -14,29 +14,29 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 
-  @Component
-  export default class TopAppBar extends Vue {
-    private navLinks: object[] = [
-      {
-        text: 'Home',
-        link: '/'
-      },
-      {
-        text: 'BIO',
-        link: '/bio'
-      },
-      {
-        text: 'Contact',
-        link: '/contact'
-      },
-      {
-        text: 'Work',
-        link: '/work'
-      }
-    ]
-  }
+@Component
+export default class TopAppBar extends Vue {
+  private navLinks: object[] = [
+    {
+      text: 'Home',
+      link: '/',
+    },
+    {
+      text: 'BIO',
+      link: '/bio',
+    },
+    {
+      text: 'Contact',
+      link: '/contact',
+    },
+    {
+      text: 'Work',
+      link: '/work',
+    },
+  ];
+}
 </script>
 
 <style lang="scss" scoped>
