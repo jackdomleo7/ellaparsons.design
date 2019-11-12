@@ -67,6 +67,7 @@ export default class TopAppBar extends Vue {
       font-size: 1.3125rem;
       padding: 0.5rem;
       text-decoration: none;
+      text-transform: uppercase;
       user-select: none;
 
       &:hover,
