@@ -62,17 +62,19 @@ export default class TopAppBar extends Vue {
     }
 
     &-link {
-      color: $grey-600;
+      border-top: 4px solid transparent;
+      color: $grey-700;
       display: block;
       font-size: 1.3125rem;
       padding: 0.5rem;
       text-decoration: none;
       text-transform: uppercase;
+      transition: color ease-in-out 0.4s, border-top-color ease-in-out 0.4s;
       user-select: none;
 
       &:hover,
       &.router-link-exact-active {
-        border-top: 4px solid $grey-900;
+        border-top-color: $grey-900;
         color: $grey-900;
       }
     }
