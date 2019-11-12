@@ -23,22 +23,11 @@ img {
 }
 
 body {
-  background-color: $grey-200;
-  background-image: url("/img/marble-background.png");
-  background-repeat: no-repeat;
+  background: url("/img/marble-background.png") no-repeat center center fixed $grey-200;
   background-size: cover;
   color: $grey-900;
-  font-family: "Open Sans", Verdana, Arial, sans-serif;
+  font-family: 'Josefin Slab', Georgia, Palatino, serif;
   font-size: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: Exo, Verdana, Arial, sans-serif;
 }
