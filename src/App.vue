@@ -16,7 +16,15 @@ import TopAppBar from '@/components/TopAppBar.vue';
     TopAppBar,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  private mounted() {
+    let path = localStorage.getItem('path');
+    if (path) {
+      localStorage.removeItem('path');
+      this.$router.push(path);
+    }
+  }
+}
 </script>
 
 <style lang="scss">
