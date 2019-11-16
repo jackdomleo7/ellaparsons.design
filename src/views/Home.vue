@@ -20,28 +20,28 @@ export default class Home extends Vue {}
 .home {
   align-items: center;
   display: flex;
-  justify-content: center;
   height: 100%;
+  justify-content: center;
   min-height: 80vh;
 }
 
 .hero {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
   max-height: 26rem;
   max-width: 26rem;
 
   &__title {
-    color: $grey-700;
-    font-family: 'Sacramento', cursive;
-    font-size: 5rem;
-    margin: 0;
     animation-delay: 1s;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
     animation-name: bounceIn;
     animation-timing-function: linear;
+    color: $grey-700;
+    font-family: "Sacramento", cursive;
+    font-size: 5rem;
+    margin: 0;
     opacity: 0;
 
     @media (max-width: 380px) {
@@ -57,15 +57,15 @@ export default class Home extends Vue {}
 
 @keyframes spin-anticlockwise {
   0% {
-    transform: rotate(180deg);
     opacity: 0;
+    transform: rotate(180deg);
   }
+
   100% {
-    transform: rotate(0deg);
     opacity: 1;
+    transform: rotate(0deg);
   }
 }
-
 @keyframes bounceIn {
   0% {
     opacity: 0;
