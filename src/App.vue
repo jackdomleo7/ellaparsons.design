@@ -18,7 +18,7 @@ import TopAppBar from '@/components/TopAppBar.vue';
 })
 export default class App extends Vue {
   private mounted() {
-    let path = localStorage.getItem('path');
+    const path = localStorage.getItem('path');
     if (path) {
       localStorage.removeItem('path');
       this.$router.push(path);
@@ -42,6 +42,7 @@ main {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
