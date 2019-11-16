@@ -29,4 +29,21 @@ export default class App extends Vue {
 
 <style lang="scss">
 @import "scss/main";
+
+main {
+  min-height: 80vh;
+
+  > * {
+    animation: fadeIn 2s;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 </style>
