@@ -199,6 +199,7 @@ export default class TopAppBar extends Vue {
     display: block;
     padding: 0.6rem 3rem;
     text-decoration: none;
+    user-select: none;
 
     &.router-link-exact-active {
       background-color: $pink;
