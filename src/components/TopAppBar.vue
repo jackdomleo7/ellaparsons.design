@@ -1,7 +1,9 @@
 <template>
   <header class="top-app-bar">
-    <h1>Ella Parsons / Graphics-Design-Creative</h1>
-    <nav>
+    <router-link to="/" class="top-app-bar__logo-link">
+      <h1 class="top-app-bar__logo">Ella Parsons / Graphics-Design-Creative</h1>
+    </router-link>
+    <nav class="top-app-bar__nav">
       <ul class="top-app-bar__nav-list">
         <li v-for="(navLink, index) in navLinks" :key="index" class="top-app-bar__list-item">
           <router-link :to="navLink.link" class="top-app-bar__list-link">
@@ -10,6 +12,11 @@
         </li>
       </ul>
     </nav>
+    <button class="mobile__hamburger-button">
+      <svg class="mobile__hamburger">
+        <use xlink:href="assets/svg-sprite.svg#icon-hamburger"></use>
+      </svg>
+    </button>
   </header>
 </template>
 
@@ -46,8 +53,45 @@ export default class TopAppBar extends Vue {
   align-items: center;
   display: flex;
   justify-content: space-around;
+  padding: 2rem 3rem 0;
+
+  @media (max-width: 845px) {
+    padding: 1rem 2rem 0;
+  }
+
+  @media (max-width: 430px) {
+    padding: 0.6rem 1rem 0;
+  }
+
+  &__logo {
+    color: $grey-800;
+    font-size: 2rem;
+    font-weight: 200;
+
+    @media (max-width: 845px) {
+      font-size: 1.6rem;
+    }
+
+    @media (max-width: 430px) {
+      font-size: 1.4rem;
+    }
+
+    &-link {
+      padding-right: 1rem;
+      text-decoration: none;
+      width: 40%;
+
+      @media (max-width: 845px) {
+        width: auto;
+      }
+    }
+  }
 
   &__nav {
+    @media (max-width: 845px) {
+      display: none;
+    }
+
     &-list {
       list-style-type: none;
       padding-left: 0;
@@ -76,6 +120,31 @@ export default class TopAppBar extends Vue {
       &.router-link-exact-active {
         border-top-color: $grey-900;
         color: $grey-900;
+      }
+    }
+  }
+}
+
+.mobile {
+  &__hamburger {
+    color: $grey-50;
+    height: 2.2rem;
+    width: 2.2rem;
+
+    @media (max-width: 430px) {
+      height: 1.8rem;
+      width: 1.8rem;
+    }
+
+    &-button {
+      background-color: $grey-900;
+      border: 0;
+      border-radius: 0.1875rem;
+      display: none;
+      padding: 0.8rem;
+
+      @media (max-width: 845px) {
+        display: block;
       }
     }
   }
