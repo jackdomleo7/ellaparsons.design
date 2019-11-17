@@ -4,16 +4,19 @@
     <main class="app__main">
       <router-view/>
     </main>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import TopAppBar from '@/components/TopAppBar.vue';
+import AppFooter from '@/components/AppFooter.vue';
 
 @Component({
   components: {
     TopAppBar,
+    AppFooter,
   },
 })
 export default class App extends Vue {
