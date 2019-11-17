@@ -12,11 +12,23 @@
         </li>
       </ul>
     </nav>
-    <button class="mobile__hamburger-button">
-      <svg class="mobile__hamburger">
-        <use xlink:href="assets/svg-sprite.svg#icon-hamburger"></use>
-      </svg>
-    </button>
+    <section>
+      <button class="mobile__hamburger-button" @click="isMobileNavExpanded = !isMobileNavExpanded">
+        <svg class="mobile__hamburger">
+          <use v-if="!isMobileNavExpanded" xlink:href="assets/svg-sprite.svg#icon-hamburger"></use>
+          <use v-else xlink:href="assets/svg-sprite.svg#icon-cross"></use>
+        </svg>
+      </button>
+      <nav class="mobile__nav" v-if="isMobileNavExpanded">
+        <ul class="mobile__list">
+          <li v-for="(navLink, index) in navLinks" :key="index" class="mobile__item">
+            <router-link :to="navLink.link" class="mobile__link">
+              {{ navLink.text }}
+            </router-link>
+          </li>
+        </ul>
+      </nav>
+    </section>
   </header>
 </template>
 
@@ -25,6 +37,8 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class TopAppBar extends Vue {
+  private isMobileNavExpanded: boolean = false;
+
   private navLinks: object[] = [
     {
       text: 'Home',
@@ -146,6 +160,48 @@ export default class TopAppBar extends Vue {
       @media (max-width: 845px) {
         display: block;
       }
+    }
+  }
+
+  &__nav {
+    display: none;
+    font-family: Verdana, sans-serif;
+    font-size: 1.4rem;
+    left: 0;
+    padding: 0 2rem;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+
+    @media (max-width: 845px) {
+      display: block;
+    }
+
+    @media (max-width: 560px) {
+      padding: 0 1rem;
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-top: 0.2rem;
+    padding-left: 0;
+  }
+
+  &__item {
+    margin: 0.1rem 0;
+  }
+
+  &__link {
+    background-color: $grey-900;
+    color: $grey-50;
+    display: block;
+    padding: 0.6rem 3rem;
+    text-decoration: none;
+
+    &.router-link-exact-active {
+      background-color: $pink;
     }
   }
 }
