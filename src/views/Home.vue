@@ -22,7 +22,6 @@ export default class Home extends Vue {}
   display: flex;
   height: 100%;
   justify-content: center;
-  min-height: 80vh;
 }
 
 .hero {
