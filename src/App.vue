@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="app">
     <top-app-bar></top-app-bar>
     <main>
       <router-view/>
@@ -30,8 +30,14 @@ export default class App extends Vue {
 <style lang="scss">
 @import "scss/main";
 
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 main {
-  min-height: 80vh;
+  flex: 1;
 
   > * {
     animation: fadeIn 2s;
