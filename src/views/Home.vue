@@ -28,8 +28,6 @@ export default class Home extends Vue {}
   align-items: center;
   display: flex;
   justify-content: center;
-  max-height: 26rem;
-  max-width: 26rem;
 
   &__title {
     animation-delay: 1s;
