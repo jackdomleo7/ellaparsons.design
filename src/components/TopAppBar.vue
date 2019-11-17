@@ -49,10 +49,6 @@ export default class TopAppBar extends Vue {
       link: '/bio',
     },
     {
-      text: 'Contact',
-      link: '/contact',
-    },
-    {
       text: 'Work',
       link: '/work',
     },
@@ -93,7 +89,7 @@ export default class TopAppBar extends Vue {
     &-link {
       padding-right: 1rem;
       text-decoration: none;
-      width: 40%;
+      width: 55%;
 
       @media (max-width: 845px) {
         width: auto;
