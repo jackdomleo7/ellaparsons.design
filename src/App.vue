@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app">
     <top-app-bar></top-app-bar>
-    <main>
+    <main class="app__main">
       <router-view/>
     </main>
   </div>
@@ -34,13 +34,13 @@ export default class App extends Vue {
   display: flex;
   flex-direction: column;
   height: 100vh;
-}
 
-main {
-  flex: 1;
+  &__main {
+    flex: 1;
 
-  > * {
-    animation: fadeIn 2s;
+    > * {
+      animation: fadeIn 2s;
+    }
   }
 }
 
