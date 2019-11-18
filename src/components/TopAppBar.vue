@@ -23,6 +23,9 @@
         <ul class="mobile__list">
           <li v-for="(navLink, index) in navLinks" :key="index" class="mobile__item">
             <router-link :to="navLink.link" class="mobile__link">
+              <svg class="mobile__icon">
+                <use :xlink:href="'assets/svg-sprite.svg#icon-' + navLink.icon"></use>
+              </svg>
               {{ navLink.text }}
             </router-link>
           </li>
@@ -43,14 +46,17 @@ export default class TopAppBar extends Vue {
     {
       text: 'Home',
       link: '/',
+      icon: 'home',
     },
     {
       text: 'BIO',
       link: '/bio',
+      icon: 'user',
     },
     {
       text: 'Work',
       link: '/work',
+      icon: 'pencil-ruler',
     },
   ];
 }
@@ -136,7 +142,8 @@ export default class TopAppBar extends Vue {
 }
 
 .mobile {
-  &__hamburger {
+  &__hamburger,
+  &__icon {
     color: $grey-50;
     height: 2.2rem;
     width: 2.2rem;
@@ -193,13 +200,17 @@ export default class TopAppBar extends Vue {
     background-color: $grey-900;
     color: $grey-50;
     display: block;
-    padding: 0.6rem 3rem;
+    padding: 0.6rem 2rem;
     text-decoration: none;
     user-select: none;
 
     &.router-link-exact-active {
       background-color: $pink;
     }
+  }
+
+  &__icon {
+    margin-right: 1rem;
   }
 }
 </style>
