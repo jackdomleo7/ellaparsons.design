@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
-import About from '../views/About.vue';
+import Bio from '../views/Bio.vue';
 import PageNotFound from '../views/PageNotFound.vue';
 
 Vue.use(VueRouter);
@@ -13,9 +13,9 @@ const routes = [
     component: Home,
   },
   {
-    path: '/about',
-    name: 'about',
-    component: About,
+    path: '/bio',
+    name: 'bio',
+    component: Bio,
   },
   {
     path: '/404',
