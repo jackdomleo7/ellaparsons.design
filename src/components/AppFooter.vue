@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <h3 class="footer__title">Graphics-Design-Creative</h3>
-    <a href="https://gurushots.com/ella.parsons/photos" aria-label="GuruShots" data-balloon-pos="up" target="_blank" rel="noreferrer" class="footer__social-link">
+    <a href="https://gurushots.com/ella.parsons/photos" aria-label="Photography on GuruShots" data-balloon-pos="up" target="_blank" rel="noreferrer" class="footer__social-link">
       <svg class="footer__social-icon">
         <use xlink:href="assets/svg-sprite.svg#icon-camera"></use>
       </svg>
