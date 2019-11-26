@@ -186,14 +186,23 @@ export default class TopAppBar extends Vue {
   }
 
   &__list {
+    background-color: $grey-75;
     list-style-type: none;
     margin-bottom: 0;
     margin-top: 0.2rem;
-    padding-left: 0;
+    padding: 0.0625rem;
   }
 
   &__item {
     margin: 0.1rem 0;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 
   &__link {
