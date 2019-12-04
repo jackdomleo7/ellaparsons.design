@@ -13,7 +13,7 @@
       </ul>
     </nav>
     <section>
-      <button class="mobile__hamburger-button" @click="isMobileNavExpanded = !isMobileNavExpanded">
+      <button class="mobile__hamburger-button" @click="toggleMobileNav">
         <svg class="mobile__hamburger">
           <use v-if="!isMobileNavExpanded" xlink:href="assets/svg-sprite.svg#icon-hamburger"></use>
           <use v-else xlink:href="assets/svg-sprite.svg#icon-cross"></use>
@@ -21,7 +21,7 @@
       </button>
       <nav class="mobile__nav" v-if="isMobileNavExpanded">
         <ul class="mobile__list">
-          <li v-for="(navLink, index) in navLinks" :key="index" class="mobile__item">
+          <li v-for="(navLink, index) in navLinks" :key="index" class="mobile__item" @click="toggleMobileNav">
             <router-link :to="navLink.link" class="mobile__link">
               <svg class="mobile__icon">
                 <use :xlink:href="'assets/svg-sprite.svg#icon-' + navLink.icon"></use>
@@ -59,6 +59,10 @@ export default class TopAppBar extends Vue {
       icon: 'pencil-ruler',
     },
   ];
+
+  private toggleMobileNav() {
+    this.isMobileNavExpanded = !this.isMobileNavExpanded;
+  }
 }
 </script>
 
