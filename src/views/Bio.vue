@@ -18,19 +18,19 @@ export default class Bio extends Vue {}
   color: $grey-900;
   margin: 1rem 2rem;
 
-  @media (min-width: 750px){
+  @media (min-width: 750px) {
     margin: 1rem 3rem;
   }
 
-  @media (min-width: 1300px){
+  @media (min-width: 1300px) {
     margin: 1rem 4rem;
   }
 
-  @media (min-width: 2000px){
+  @media (min-width: 2000px) {
     margin: 1rem 5rem;
   }
 
-  @media (min-width: 3000px){
+  @media (min-width: 3000px) {
     margin: 1rem 6rem;
   }
 }
