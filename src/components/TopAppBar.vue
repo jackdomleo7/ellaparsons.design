@@ -31,6 +31,7 @@
           </li>
         </ul>
       </nav>
+      <div class="mobile__nav-mask" v-if="isMobileNavExpanded" @click="toggleMobileNav"></div>
     </section>
   </header>
 </template>
@@ -186,6 +187,15 @@ export default class TopAppBar extends Vue {
 
     @media (max-width: 560px) {
       padding: 0 1rem;
+    }
+
+    &-mask {
+      height: 100vh;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100vw;
+      z-index: 99;
     }
   }
 
