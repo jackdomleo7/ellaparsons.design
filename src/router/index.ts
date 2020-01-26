@@ -24,13 +24,9 @@ const routes = [
     component: Work,
   },
   {
-    path: '/404',
+    path: '*',
     name: 'page not found',
     component: PageNotFound,
-  },
-  {
-    path: '*',
-    redirect: '/404',
   },
 ];
 
