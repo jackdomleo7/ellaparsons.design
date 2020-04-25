@@ -36,7 +36,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon.vue';
 
 @Component({
-  components: { Icon }
+  components: { Icon },
 })
 export default class TopAppBar extends Vue {
   private isMobileNavExpanded: boolean = false;

@@ -18,7 +18,7 @@ import Icon from '@/components/Icon.vue';
 import SiteLink from '@/components/SiteLink.vue';
 
 @Component({
-  components: { Icon, SiteLink }
+  components: { Icon, SiteLink },
 })
 export default class AppFooter extends Vue {}
 </script>
