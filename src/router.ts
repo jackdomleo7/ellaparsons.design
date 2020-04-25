@@ -1,9 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
-import Bio from '../views/Bio.vue';
-import Work from '../views/Work.vue';
-import PageNotFound from '../views/PageNotFound.vue';
 
 Vue.use(VueRouter);
 
@@ -11,22 +7,22 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home,
+    component: () => import('@/views/Home.vue'),
   },
   {
     path: '/bio',
     name: 'bio',
-    component: Bio,
+    component: () => import('@/views/Bio.vue'),
   },
   {
     path: '/work',
     name: 'work',
-    component: Work,
+    component: () => import('@/views/Work.vue'),
   },
   {
     path: '*',
     name: 'page not found',
-    component: PageNotFound,
+    component: () => import('@/views/PageNotFound.vue'),
   },
 ];
 
