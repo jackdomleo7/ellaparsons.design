@@ -14,18 +14,13 @@
     </nav>
     <section>
       <button class="mobile__hamburger-button" @click="toggleMobileNav">
-        <svg class="mobile__hamburger">
-          <use v-if="!isMobileNavExpanded" xlink:href="assets/svg-sprite.svg#icon-hamburger"></use>
-          <use v-else xlink:href="assets/svg-sprite.svg#icon-cross"></use>
-        </svg>
+        <icon class="mobile__hamburger" :icon="!isMobileNavExpanded ? 'hamburger' : 'cross'" />
       </button>
       <nav class="mobile__nav" v-if="isMobileNavExpanded">
         <ul class="mobile__list">
           <li v-for="(navLink, index) in navLinks" :key="index" class="mobile__item" @click="toggleMobileNav">
             <router-link :to="navLink.link" class="mobile__link">
-              <svg class="mobile__icon">
-                <use :xlink:href="'assets/svg-sprite.svg#icon-' + navLink.icon"></use>
-              </svg>
+              <icon class="mobile__icon" :icon="navLink.icon" />
               {{ navLink.text }}
             </router-link>
           </li>
@@ -38,8 +33,11 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import Icon from '@/components/Icon.vue';
 
-@Component
+@Component({
+  components: { Icon }
+})
 export default class TopAppBar extends Vue {
   private isMobileNavExpanded: boolean = false;
 
