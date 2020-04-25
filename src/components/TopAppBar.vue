@@ -68,8 +68,6 @@ export default class TopAppBar extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/colours";
-
 .top-app-bar {
   align-items: center;
   display: flex;
@@ -85,7 +83,7 @@ export default class TopAppBar extends Vue {
   }
 
   &__logo {
-    color: $grey-800;
+    color: var(--color-grey-800);
     font-size: 2rem;
     font-weight: 200;
 
@@ -128,7 +126,7 @@ export default class TopAppBar extends Vue {
 
     &-link {
       border-top: 4px solid transparent;
-      color: $grey-700;
+      color: var(--color-grey-700);
       display: block;
       font-size: 1.3125rem;
       padding: 0.5rem;
@@ -139,8 +137,8 @@ export default class TopAppBar extends Vue {
 
       &:hover,
       &.router-link-exact-active {
-        border-top-color: $grey-900;
-        color: $grey-900;
+        border-top-color: var(--color-grey-900);
+        color: var(--color-grey-900);
       }
     }
   }
@@ -149,7 +147,7 @@ export default class TopAppBar extends Vue {
 .mobile {
   &__hamburger,
   &__icon {
-    color: $grey-50;
+    color: var(--color-grey-50);
     height: 2.2rem;
     width: 2.2rem;
 
@@ -159,7 +157,7 @@ export default class TopAppBar extends Vue {
     }
 
     &-button {
-      background-color: $grey-900;
+      background-color: var(--color-grey-900);
       border: 0;
       border-radius: 0.1875rem;
       display: none;
@@ -200,7 +198,7 @@ export default class TopAppBar extends Vue {
   }
 
   &__list {
-    background-color: $grey-75;
+    background-color: var(--color-grey-75);
     list-style-type: none;
     margin-bottom: 0;
     margin-top: 0.2rem;
@@ -221,8 +219,8 @@ export default class TopAppBar extends Vue {
 
   &__link {
     align-items: center;
-    background-color: $grey-900;
-    color: $grey-50;
+    background-color: var(--color-grey-900);
+    color: var(--color-grey-50);
     display: flex;
     padding: 0.6rem 2rem;
     text-decoration: none;
@@ -230,7 +228,7 @@ export default class TopAppBar extends Vue {
     width: 100%;
 
     &.router-link-exact-active {
-      background-color: $pink;
+      background-color: var(--color-pink);
     }
   }
 

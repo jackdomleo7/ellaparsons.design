@@ -18,8 +18,6 @@ export default class Work extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/colours";
-
 .work {
   padding: 1rem 3rem;
 

@@ -12,10 +12,8 @@ export default class Bio extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/colours";
-
 .bio {
-  color: $grey-900;
+  color: var(--color-grey-900);
   margin: 1rem 2rem;
 
   @media (min-width: 750px) {

@@ -1,13 +1,12 @@
-@import "./colours";
-
 ::selection {
-  background-color: $pink;
-  color: $grey-50;
+  background-color: var(--color-pink);
+  color: var(--color-grey-50);
   text-shadow: none;
 }
 
 html {
   box-sizing: border-box;
+  font-family: serif;
 }
 
 *,
@@ -23,14 +22,14 @@ img {
 }
 
 body {
-  background: url("/img/marble-background.png") no-repeat center center fixed $grey-200;
-  color: $grey-900;
+  background: url("/img/marble-background.png") no-repeat center center fixed var(--color-grey-200);
+  color: var(--color-grey-900);
   font-family: "Playfair Display", Georgia, Palatino, serif;
   font-size: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @media (min-width: 1920px), (min-height: 1080px) {
+  @media (min-width: 120em), (min-height: 67.5em) {
     background-size: cover;
   }
 }

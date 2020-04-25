@@ -15,8 +15,6 @@ export default class Home extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/colours";
-
 .home {
   align-items: center;
   display: flex;
@@ -36,7 +34,7 @@ export default class Home extends Vue {}
     animation-fill-mode: forwards;
     animation-name: bounceIn;
     animation-timing-function: linear;
-    color: $grey-700;
+    color: var(--color-grey-700);
     font-family: "Sacramento", cursive;
     font-size: 5rem;
     margin: 0;

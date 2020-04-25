@@ -24,8 +24,6 @@ export default class AppFooter extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/colours";
-
 .footer {
   align-items: center;
   display: flex;
@@ -45,9 +43,9 @@ export default class AppFooter extends Vue {}
   &__social {
     &-link {
       align-items: center;
-      background-color: $grey-800;
+      background-color: var(--color-grey-800);
       border-radius: 0.1875rem;
-      color: $grey-50;
+      color: var(--color-grey-50);
       display: inline-flex;
       justify-content: center;
       margin: 0 0.5rem;
@@ -55,7 +53,7 @@ export default class AppFooter extends Vue {}
       transition: 0.2s background-color ease-in-out;
 
       &:hover {
-        background-color: $pink;
+        background-color: var(--color-pink);
       }
     }
 
