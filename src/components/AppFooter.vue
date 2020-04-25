@@ -1,11 +1,18 @@
 <template>
   <footer class="footer">
     <h3 class="footer__title">Graphics-Design-Creative</h3>
-    <a href="https://gurushots.com/ella.parsons/photos" aria-label="Photography on GuruShots" data-cooltipz-dir="top" target="_blank" rel="noreferrer" class="footer__social-link">
-      <svg class="footer__social-icon">
-        <use xlink:href="assets/svg-sprite.svg#icon-camera"></use>
-      </svg>
-    </a>
+    <div>
+      <a href="https://gurushots.com/ella.parsons/photos" aria-label="Photography on GuruShots" data-cooltipz-dir="top" target="_blank" rel="noreferrer" class="footer__social-link">
+        <svg class="footer__social-icon">
+          <use xlink:href="assets/svg-sprite.svg#icon-camera"></use>
+        </svg>
+      </a>
+      <a href="https://designers.designcrowd.co.uk/designer.aspx?designerId=842923" aria-label="Logo design on DesignCrowd" data-cooltipz-dir="top" target="_blank" rel="noreferrer" class="footer__social-link">
+        <svg class="footer__social-icon">
+          <use xlink:href="assets/svg-sprite.svg#icon-object-group"></use>
+        </svg>
+      </a>
+    </div>
   </footer>
 </template>
 
@@ -37,9 +44,13 @@ export default class AppFooter extends Vue {}
 
   &__social {
     &-link {
+      align-items: center;
       background-color: $grey-800;
       border-radius: 0.1875rem;
       color: $grey-50;
+      display: inline-flex;
+      justify-content: center;
+      margin: 0 0.5rem;
       padding: 0.3rem;
       transition: 0.2s background-color ease-in-out;
 
