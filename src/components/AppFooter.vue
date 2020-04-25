@@ -2,12 +2,12 @@
   <footer class="footer">
     <h3 class="footer__title">Graphics-Design-Creative</h3>
     <div>
-      <a href="https://gurushots.com/ella.parsons/photos?ref=ellaparsons.design" aria-label="Photography on GuruShots" data-cooltipz-dir="top" target="_blank" rel="noreferrer" class="footer__social-link">
+      <site-link type="external" link="https://gurushots.com/ella.parsons/photos" aria-label="Photography on GuruShots" data-cooltipz-dir="top" class="footer__social-link">
         <icon class="footer__social-icon" icon="camera" />
-      </a>
-      <a href="https://designers.designcrowd.co.uk/designer.aspx?designerId=842923&ref=ellaparsons.design" aria-label="Logo design on DesignCrowd" data-cooltipz-dir="top" target="_blank" rel="noreferrer" class="footer__social-link">
+      </site-link>
+      <site-link type="external" link="https://designers.designcrowd.co.uk/designer.aspx?designerId=842923" aria-label="Logo design on DesignCrowd" data-cooltipz-dir="top" class="footer__social-link">
         <icon class="footer__social-icon" icon="object-group" />
-      </a>
+      </site-link>
     </div>
   </footer>
 </template>
@@ -15,9 +15,10 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Icon from '@/components/Icon.vue';
+import SiteLink from '@/components/SiteLink.vue';
 
 @Component({
-  components: { Icon }
+  components: { Icon, SiteLink }
 })
 export default class AppFooter extends Vue {}
 </script>
@@ -50,10 +51,6 @@ export default class AppFooter extends Vue {}
       margin: 0 0.5rem;
       padding: 0.3rem;
       transition: 0.2s background-color ease-in-out;
-
-      &:hover {
-        background-color: var(--color-pink);
-      }
     }
 
     &-icon {
