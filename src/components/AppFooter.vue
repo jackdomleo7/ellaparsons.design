@@ -2,12 +2,12 @@
   <footer class="footer">
     <h3 class="footer__title">Graphics-Design-Creative</h3>
     <div>
-      <a href="https://gurushots.com/ella.parsons/photos" aria-label="Photography on GuruShots" data-cooltipz-dir="top" target="_blank" rel="noreferrer" class="footer__social-link">
+      <a href="https://gurushots.com/ella.parsons/photos?ref=ellaparsons.design" aria-label="Photography on GuruShots" data-cooltipz-dir="top" target="_blank" rel="noreferrer" class="footer__social-link">
         <svg class="footer__social-icon">
           <use xlink:href="assets/svg-sprite.svg#icon-camera"></use>
         </svg>
       </a>
-      <a href="https://designers.designcrowd.co.uk/designer.aspx?designerId=842923" aria-label="Logo design on DesignCrowd" data-cooltipz-dir="top" target="_blank" rel="noreferrer" class="footer__social-link">
+      <a href="https://designers.designcrowd.co.uk/designer.aspx?designerId=842923&ref=ellaparsons.design" aria-label="Logo design on DesignCrowd" data-cooltipz-dir="top" target="_blank" rel="noreferrer" class="footer__social-link">
         <svg class="footer__social-icon">
           <use xlink:href="assets/svg-sprite.svg#icon-object-group"></use>
         </svg>
