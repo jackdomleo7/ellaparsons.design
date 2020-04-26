@@ -78,12 +78,12 @@ export default class AppFooter extends Vue {
   }
 
   &__social {
-    padding-left: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
     list-style-type: none;
     margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding-left: 0;
 
     > li {
       margin: 0 0.5rem;
