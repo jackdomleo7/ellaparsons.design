@@ -21,6 +21,7 @@ export interface IMedias {
 export default class CommonInfo {
   private static readonly NAME: string = process.env.VUE_APP_NAME;
   private static readonly WEBSITE_DOMAIN: string = process.env.VUE_APP_DOMAIN;
+  private static readonly EMAIL: string = 'ella.parsons25@hotmail.com';
   private static readonly MEDIA: IMedias = {
     designcrowd: {
       platform: 'Design Crowd',
@@ -64,5 +65,9 @@ export default class CommonInfo {
 
   public static get commonMedia(): IMedias {
     return this.MEDIA;
+  }
+
+  public static get commonEmail(): string {
+    return this.EMAIL;
   }
 }

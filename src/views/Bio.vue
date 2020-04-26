@@ -14,6 +14,10 @@
     <p>
       I also use a website called <site-link type="external" :link="commonMedia.designcrowd.url">{{ commonMedia.designcrowd.platform }}</site-link> where I enter logo design competitions, but my primary use of this is to practice reading briefs and being creative while sticking to what the customer has asked for. Businesses could be looking for anything from a logo design to a t-shirt design. They use a brief so the designers have an idea about what they are looking for. Visit my <site-link type="external" :link="commonMedia.designcrowd.url">{{ commonMedia.designcrowd.platform }}</site-link>, <site-link type="external" :link="commonMedia.dribbble.url">{{ commonMedia.dribbble.platform }}</site-link> and <site-link type="external" :link="commonMedia.pinterest.url">{{ commonMedia.pinterest.platform }}</site-link> pages for some of my work.
     </p>
+    <br/>
+    <p>
+      Get in contact with me at <site-link type="email" :link="commonEmail">{{ commonEmail }}</site-link>.
+    </p>
   </div>
 </template>
 
@@ -28,6 +32,10 @@ import CommonInfo, { IMedias } from '@/helpers/CommonInfo.ts';
 export default class Bio extends Vue {
   private get commonMedia(): IMedias {
     return CommonInfo.commonMedia;
+  }
+
+  private get commonEmail(): string {
+    return CommonInfo.commonEmail;
   }
 }
 </script>
