@@ -41,9 +41,5 @@ export default class SiteLink extends Vue {
   color: inherit;
   font-weight: 700;
   text-decoration: underline;
-
-  &:hover {
-    color: var(--color-pink);
-  }
 }
 </style>

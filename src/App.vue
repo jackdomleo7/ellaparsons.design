@@ -40,6 +40,7 @@ export default class App extends Vue {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  overflow-x: hidden;
 
   &__main {
     flex: 1;

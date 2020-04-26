@@ -1,7 +1,7 @@
 <template>
   <header class="top-app-bar">
     <router-link to="/" class="top-app-bar__logo-link">
-      <h1 class="top-app-bar__logo">Ella Parsons / Graphics-Design-Creative</h1>
+      <h1 class="top-app-bar__logo">Ella Parsons | Designer &amp; Photographer</h1>
     </router-link>
     <nav class="top-app-bar__nav">
       <ul class="top-app-bar__nav-list">
