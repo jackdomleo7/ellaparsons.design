@@ -30,31 +30,31 @@ export default class AppFooter extends Vue {
     {
       tooltip: 'Pinterest',
       icon: 'pinterest',
-      link: 'https://www.pinterest.co.uk/ellaparsons1633'
+      link: 'https://www.pinterest.co.uk/ellaparsons1633',
     },
     {
       tooltip: 'Instagram',
       icon: 'instagram',
-      link: 'https://www.instagram.com/ella.photos00'
+      link: 'https://www.instagram.com/ella.photos00',
     },
     {
       tooltip: 'Photography on GuruShots',
       icon: 'gurushots.png',
       link: 'https://gurushots.com/ella.parsons/photos',
-      image: true
+      image: true,
     },
     {
       tooltip: 'Dribbble',
       icon: 'dribbble',
-      link: 'https://dribbble.com/Ellaparsons'
+      link: 'https://dribbble.com/Ellaparsons',
     },
     {
       tooltip: 'Logo design on DesignCrowd',
       icon: 'designcrowd.png',
       link: 'https://designers.designcrowd.co.uk/designer.aspx?designerId=842923',
-      image: true
-    }
-  ]
+      image: true,
+    },
+  ];
 }
 </script>
 
