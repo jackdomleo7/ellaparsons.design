@@ -103,10 +103,10 @@ export default class AppFooter extends Vue {
       border-radius: 0.1875rem;
       color: var(--color-grey-50);
       display: inline-flex;
+      height: 1.8rem;
       justify-content: center;
       padding: 0.3rem;
       transition: 0.2s background-color ease-in-out;
-      height: 1.8rem;
       width: 1.8rem;
 
       &:hover,

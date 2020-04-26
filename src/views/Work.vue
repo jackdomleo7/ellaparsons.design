@@ -25,7 +25,7 @@ interface IWorkImage {
 }
 
 @Component({
-  components: { SiteLink }
+  components: { SiteLink },
 })
 export default class Work extends Vue {
   private get commonMedia(): IMedias {
@@ -35,137 +35,137 @@ export default class Work extends Vue {
   private images: IWorkImage[] = [
     {
       image: 'pizza-express-pizzeria',
-      alt: 'Pizza Express Pizzeria'
+      alt: 'Pizza Express Pizzeria',
     },
     {
       image: 'royal-air-force-rowing',
-      alt: 'Royal Air Force Rowing'
+      alt: 'Royal Air Force Rowing',
     },
     {
       image: 'liverpool-fc',
-      alt: 'Liverpool Football Club'
+      alt: 'Liverpool Football Club',
     },
     {
       image: 'nhs-laundry',
-      alt: 'NHS Laundry'
+      alt: 'NHS Laundry',
     },
     {
       image: 'spar',
-      alt: 'SPAR'
+      alt: 'SPAR',
     },
     {
       image: 'virgin-media-business',
-      alt: 'Virgin Media Business'
+      alt: 'Virgin Media Business',
     },
     {
       image: 'stagecoach',
-      alt: 'Stagecoach'
+      alt: 'Stagecoach',
     },
     {
       image: 'stihl',
-      alt: 'STIHL'
+      alt: 'STIHL',
     },
     {
       image: 'bamct',
-      alt: 'BAM Construction Training'
+      alt: 'BAM Construction Training',
     },
     {
       image: 'general-electric',
-      alt: 'General Electric'
+      alt: 'General Electric',
     },
     {
       image: 'stand-fast',
-      alt: 'Stand Fast'
+      alt: 'Stand Fast',
     },
     {
       image: 'juste-de-lencre',
-      alt: 'Juste de L\'encre'
+      alt: 'Juste de L\'encre',
     },
     {
       image: 'simon-gibson',
-      alt: 'Simon Gibson Transport'
+      alt: 'Simon Gibson Transport',
     },
     {
       image: 'peter',
-      alt: 'PETER'
+      alt: 'PETER',
     },
     {
       image: 'alford',
-      alt: 'ALFORD'
+      alt: 'ALFORD',
     },
     {
       image: 'aemt',
-      alt: 'AEMT'
+      alt: 'AEMT',
     },
     {
       image: 'muckendork-zeiselmauer',
-      alt: 'Muckendork Zeiselmauer'
+      alt: 'Muckendork Zeiselmauer',
     },
     {
       image: 'ville-de-mery-sur-oise',
-      alt: 'Ville de Mery Sur Oise'
+      alt: 'Ville de Mery Sur Oise',
     },
     {
       image: 'jugend-arbeit',
-      alt: 'Jugend Arbeit'
+      alt: 'Jugend Arbeit',
     },
     {
       image: 'ambever',
-      alt: 'Ambever'
+      alt: 'Ambever',
     },
     {
       image: 'i-jump-trampoline-park',
-      alt: 'I-Jump Trampoline Park'
+      alt: 'I-Jump Trampoline Park',
     },
     {
       image: 'm2-construction',
-      alt: 'M2 Construction'
+      alt: 'M2 Construction',
     },
     {
       image: 'charcuterie-joubert-cap-ferret',
-      alt: 'Charcuterie Joubert Cap Ferret'
+      alt: 'Charcuterie Joubert Cap Ferret',
     },
     {
       image: 'university-of-bath',
-      alt: 'University of Bath'
+      alt: 'University of Bath',
     },
     {
       image: 'mc2-therapeutics',
-      alt: 'MC2 Therapeutics'
+      alt: 'MC2 Therapeutics',
     },
     {
       image: 'the-new-philly',
-      alt: 'The New Philly'
+      alt: 'The New Philly',
     },
     {
       image: 'sogielec',
-      alt: 'Sogielec'
+      alt: 'Sogielec',
     },
     {
       image: 'air-products',
-      alt: 'Air Products'
+      alt: 'Air Products',
     },
     {
       image: 'karl-hugo',
-      alt: 'Karl Hugo Mechanical Engineering'
+      alt: 'Karl Hugo Mechanical Engineering',
     },
     {
       image: 'mmg',
-      alt: 'MMG Carrocerias'
+      alt: 'MMG Carrocerias',
     },
     {
       image: 'dubness',
-      alt: 'DubNess'
-    }
+      alt: 'DubNess',
+    },
   ];
 }
 </script>
 
 <style lang="scss" scoped>
 .work {
-  padding: 1rem 0;
-  max-width: 72em;
   margin: 0 auto;
+  max-width: 72em;
+  padding: 1rem 0;
   text-align: center;
 
   @media (min-width: 48em) {
@@ -173,27 +173,27 @@ export default class Work extends Vue {
   }
 
   &__gallery {
-    padding-left: 0;
-    margin: 0;
-    list-style-type: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
   }
 
   &__figure {
     align-items: center;
     display: flex;
     height: 14rem;
-    width: 14rem;
     justify-content: center;
     margin: 1rem;
+    width: 14rem;
   }
 
   &__image {
-    width: 100%;
     max-height: 100%;
     object-fit: cover;
+    width: 100%;
   }
 }
 </style>
