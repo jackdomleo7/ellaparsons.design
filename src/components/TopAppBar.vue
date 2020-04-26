@@ -6,7 +6,7 @@
     <nav class="top-app-bar__nav">
       <ul class="top-app-bar__nav-list">
         <li v-for="(navLink, index) in navLinks" :key="index" class="top-app-bar__list-item">
-          <router-link :to="navLink.link" class="top-app-bar__list-link">
+          <router-link :to="navLink.link" class="top-app-bar__list-link" :aria-current="isCurrent(navLink.link) ? 'page' : null">
             {{ navLink.text }}
           </router-link>
         </li>
@@ -19,7 +19,7 @@
       <nav class="mobile__nav" v-if="isMobileNavExpanded">
         <ul class="mobile__list">
           <li v-for="(navLink, index) in navLinks" :key="index" class="mobile__item" @click="toggleMobileNav">
-            <router-link :to="navLink.link" class="mobile__link">
+            <router-link :to="navLink.link" class="mobile__link" :aria-current="isCurrent(navLink.link) ? 'page' : null">
               <icon class="mobile__icon" :icon="navLink.icon" />
               {{ navLink.text }}
             </router-link>
@@ -61,6 +61,10 @@ export default class TopAppBar extends Vue {
 
   private toggleMobileNav() {
     this.isMobileNavExpanded = !this.isMobileNavExpanded;
+  }
+
+  private isCurrent(link: string): boolean {
+    return this.$route.path === link;
   }
 }
 </script>
