@@ -4,8 +4,8 @@
     <ul class="footer__social">
       <li v-for="(social, index) in socialLinks" :key="index" :aria-setsize="socialLinks.length" :aria-posinset="index + 1">
         <site-link type="external" :link="social.url" :aria-label="social.tooltip" data-cooltipz-dir="top" class="footer__social-link">
-          <img v-if="social.iconIsImage" class="footer__social-icon" :src="'/img/' + social.icon" />
-          <icon v-else class="footer__social-icon" :icon="social.icon" />
+          <img v-if="social.iconIsImage" :src="'/img/' + social.icon" />
+          <icon v-else :icon="social.icon" />
         </site-link>
       </li>
     </ul>
@@ -106,17 +106,14 @@ export default class AppFooter extends Vue {
       justify-content: center;
       padding: 0.3rem;
       transition: 0.2s background-color ease-in-out;
+      height: 1.8rem;
+      width: 1.8rem;
 
       &:hover,
       &:focus {
         background-color: var(--color-grey-700);
         color: var(--color-grey-50);
       }
-    }
-
-    &-icon {
-      height: 1.5rem;
-      width: 1.5rem;
     }
   }
 }
