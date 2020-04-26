@@ -6,7 +6,7 @@
       <ul class="work__gallery">
         <li v-for="(image, index) in images" :key="index" :aria-setsize="images.length" :aria-posinset="index + 1">
           <figure class="work__figure" :aria-label="image.alt" data-cooltipz-dir="top">
-            <img class="work__image" :alt="'🖼️ ' + image.alt + ' logo'" :src="'/img/work/' + image.image + '.png'" />
+            <img class="work__image" :alt="'🖼️ ' + image.alt + ' logo'" :src="'/img/work/' + image.image + '.png'" loading="lazy" />
           </figure>
         </li>
       </ul>
