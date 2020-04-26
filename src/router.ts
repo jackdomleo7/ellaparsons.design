@@ -33,11 +33,11 @@ export default class Router implements RouterOptions {
     /* eslint-disable-next-line */
     next: (to?: RawLocation | false | ((vm: Vue) => any) | void) => void,
   ) {
-    // Set <title>
+    const defaultTitle = 'Ella Parsons | Designer & Photographer';
     if (to.meta.title) {
-      document.title = to.meta.title + ' | Ella Parsons';
+      document.title = to.meta.title + ' | ' + defaultTitle;
     } else {
-      document.title = 'Ella Parsons';
+      document.title = defaultTitle;
     }
 
     next();
