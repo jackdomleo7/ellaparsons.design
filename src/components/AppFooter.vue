@@ -1,12 +1,14 @@
 <template>
   <footer class="footer">
     <h3 class="footer__title">Graphics-Design-Creative</h3>
-    <div>
-      <site-link v-for="(social, index) in socialLinks" :key="index" type="external" :link="social.link" :aria-label="social.tooltip" data-cooltipz-dir="top" class="footer__social-link">
-        <img v-if="social.image" class="footer__social-icon" :src="'/img/' + social.icon" />
-        <icon v-else class="footer__social-icon" :icon="social.icon" />
-      </site-link>
-    </div>
+    <ul class="footer__social">
+      <li v-for="(social, index) in socialLinks" :key="index" :aria-setsize="socialLinks.length" :aria-posinset="index + 1">
+        <site-link type="external" :link="social.link" :aria-label="social.tooltip" data-cooltipz-dir="top" class="footer__social-link">
+          <img v-if="social.image" class="footer__social-icon" :src="'/img/' + social.icon" />
+          <icon v-else class="footer__social-icon" :icon="social.icon" />
+        </site-link>
+      </li>
+    </ul>
   </footer>
 </template>
 
@@ -76,6 +78,17 @@ export default class AppFooter extends Vue {
   }
 
   &__social {
+    padding-left: 0;
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > li {
+      margin: 0 0.5rem;
+    }
+
     &-link {
       align-items: center;
       background-color: var(--color-grey-800);
@@ -83,7 +96,6 @@ export default class AppFooter extends Vue {
       color: var(--color-grey-50);
       display: inline-flex;
       justify-content: center;
-      margin: 0 0.5rem;
       padding: 0.3rem;
       transition: 0.2s background-color ease-in-out;
 
