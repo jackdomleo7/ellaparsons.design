@@ -34,32 +34,32 @@ export default class AppFooter extends Vue {
       tooltip: this.commonMedia.pinterest.platform,
       icon: this.commonMedia.pinterest.icon,
       url: this.commonMedia.pinterest.url,
-      iconIsImage: this.commonMedia.pinterest.iconIsImage
+      iconIsImage: this.commonMedia.pinterest.iconIsImage,
     },
     {
       tooltip: this.commonMedia.instagram.platform,
       icon: this.commonMedia.instagram.icon,
       url: this.commonMedia.instagram.url,
-      iconIsImage: this.commonMedia.instagram.iconIsImage
+      iconIsImage: this.commonMedia.instagram.iconIsImage,
     },
     {
       tooltip: this.commonMedia.gurushots.platform,
       icon: this.commonMedia.gurushots.icon,
       url: this.commonMedia.gurushots.url,
-      iconIsImage: this.commonMedia.gurushots.iconIsImage
+      iconIsImage: this.commonMedia.gurushots.iconIsImage,
     },
     {
       tooltip: this.commonMedia.dribbble.platform,
       icon: this.commonMedia.dribbble.icon,
       url: this.commonMedia.dribbble.url,
-      iconIsImage: this.commonMedia.dribbble.iconIsImage
+      iconIsImage: this.commonMedia.dribbble.iconIsImage,
     },
     {
       tooltip: this.commonMedia.designcrowd.platform,
       icon: this.commonMedia.designcrowd.icon,
       url: this.commonMedia.designcrowd.url,
-      iconIsImage: this.commonMedia.designcrowd.iconIsImage
-    }
+      iconIsImage: this.commonMedia.designcrowd.iconIsImage,
+    },
   ];
 
   private get commonMedia(): IMedias {

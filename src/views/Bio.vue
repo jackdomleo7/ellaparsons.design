@@ -23,7 +23,7 @@ import SiteLink from '@/components/SiteLink.vue';
 import CommonInfo, { IMedias } from '@/helpers/CommonInfo.ts';
 
 @Component({
-  components: { SiteLink }
+  components: { SiteLink },
 })
 export default class Bio extends Vue {
   private get commonMedia(): IMedias {
