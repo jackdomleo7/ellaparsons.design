@@ -9,6 +9,7 @@
         </site-link>
       </li>
     </ul>
+    <p class="footer__copy"><small>&copy;{{ new Date().getFullYear() }} <site-link type="external" link="https://ellaparsons.design">Ella Parsons</site-link>, <site-link type="external" link="https://jackdomleo.dev">Jack Domleo</site-link>. <br/>All rights reserved.</small></p>
   </footer>
 </template>
 
@@ -74,10 +75,10 @@ export default class AppFooter extends Vue {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 3rem 2rem;
+  padding: 2.5rem 2rem;
 
   @media (max-width: 845px) {
-    padding: 1.5rem 1rem;
+    padding: 1rem;
   }
 
   &__title {
@@ -113,6 +114,17 @@ export default class AppFooter extends Vue {
       &:focus {
         background-color: var(--color-grey-700);
         color: var(--color-grey-50);
+      }
+    }
+  }
+
+  &__copy {
+    margin-bottom: 0;
+    text-align: center;
+
+    br {
+      @media (min-width: 370px) {
+        display: none;
       }
     }
   }
