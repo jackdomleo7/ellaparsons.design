@@ -1,9 +1,17 @@
 {
   "name": "ellaparsons.design",
   "version": "1.0.0",
-  "description": "Portfolio website for Ella Parsons",
-  "author": "Jack Domleo",
   "private": true,
+  "description": "Portfolio website for Ella Parsons",
+  "author": {
+    "name": "Jack Domleo",
+    "url": "https://jackdomleo.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JDomleo/ellaparsons.design.git"
+  },
+  "homepage": "https://ellaparsons.design",
   "scripts": {
     "dev": "nuxt",
     "lint": "eslint --fix --ext .ts,.js,.vue --ignore-path .eslintignore .",
