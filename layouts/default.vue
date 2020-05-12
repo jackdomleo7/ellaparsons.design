@@ -2,7 +2,7 @@
   <div id="app" class="app">
     <app-header />
     <main class="app__main">
-      <router-view/>
+      <nuxt />
     </main>
     <app-footer />
   </div>

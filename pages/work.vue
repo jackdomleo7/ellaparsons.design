@@ -194,6 +194,7 @@ export default class Work extends Vue {
     max-height: 100%;
     object-fit: cover;
     width: 100%;
+    image-rendering: pixelated;
   }
 }
 </style>
