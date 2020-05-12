@@ -77,6 +77,7 @@ export default {
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
+    '@nuxtjs/svg-sprite',
   ],
   build: {
   }
