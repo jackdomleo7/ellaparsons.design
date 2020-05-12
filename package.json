@@ -1,33 +1,47 @@
 {
   "name": "ellaparsons.design",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "Portfolio website for Ella Parsons",
+  "author": {
+    "name": "Jack Domleo",
+    "url": "https://jackdomleo.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JDomleo/ellaparsons.design.git"
+  },
+  "homepage": "https://ellaparsons.design",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint && npm run stylelint:fix",
-    "stylelint": "stylelint \"**/*.(scss|vue)\"",
-    "stylelint:fix": "stylelint \"**/*.(scss|vue)\" --fix"
+    "dev": "nuxt",
+    "lint": "eslint --fix --ext .ts,.js,.vue --ignore-path .eslintignore .",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "@nuxtjs/sitemap": "^2.3.0",
+    "@nuxtjs/svg-sprite": "^0.4.10",
+    "autoprefixer": "^9.7.6",
     "cooltipz-css": "^1.6.0",
-    "core-js": "^3.6.4",
+    "cssnano": "^4.1.10",
+    "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
-    "vue": "^2.6.11",
-    "vue-class-component": "^7.2.2",
-    "vue-property-decorator": "^8.3.0",
-    "vue-router": "^3.1.5"
+    "nuxt": "^2.12.2",
+    "sass-loader": "^8.0.2",
+    "vue-property-decorator": "^8.4.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.1.2",
-    "@vue/cli-plugin-typescript": "^4.1.2",
-    "@vue/cli-service": "^4.1.2",
-    "node-sass": "^4.14.0",
-    "sass-loader": "^8.0.2",
-    "stylelint": "^13.3.3",
-    "stylelint-order": "^4.0.0",
-    "stylelint-scss": "^3.17.1",
-    "typescript": "~3.7.4",
-    "vue-template-compiler": "^2.6.11"
+    "@nuxt/typescript-build": "^0.6.6",
+    "@nuxtjs/eslint-config-typescript": "^2.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-vue": "^6.2.2",
+    "prettier": "^2.0.5"
   }
 }

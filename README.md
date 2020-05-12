@@ -1,29 +1,26 @@
-# ellaparsons.design
+# [ellaparsons.design](https://ellaparsons.design)
 
-## Project setup
-```
-npm install
-```
+> Portfolio website for Ella Parsons
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+https://ellaparsons.design
 
-### Compiles and minifies for production
-```
-npm run build
-```
+![Website status](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fellaparsons.design "Website status")
 
-### Run your tests
-```
-npm run test
-```
+## Build Setup
 
-### Lints and fixes files
-```
-npm run lint
+```bash
+# install dependencies
+$ npm install
+
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ npm run build
+$ npm run start
+
+# generate static project
+$ npm run generate
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
