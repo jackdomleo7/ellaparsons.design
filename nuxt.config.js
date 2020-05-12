@@ -69,6 +69,7 @@ export default {
   loading: { color: '#e34396' },
   css: [
     'normalize.css',
+    'node_modules/cooltipz-css/src/cooltipz',
     '@/assets/styles/main.scss'
   ],
   plugins: [
@@ -82,5 +83,11 @@ export default {
     '@nuxtjs/svg-sprite',
   ],
   build: {
+    postcss: {
+      plugins: {
+        autoprefixer: {},
+        cssnano: {}
+      }
+    }
   }
 }
