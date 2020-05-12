@@ -27,47 +27,47 @@ export default class CommonInfo {
       platform: 'Design Crowd',
       url: 'https://designers.designcrowd.co.uk/designer.aspx?designerId=842923',
       icon: 'designcrowd.png',
-      iconIsImage: true,
+      iconIsImage: true
     },
     dribbble: {
       platform: 'Dribbble',
       url: 'https://dribbble.com/Ellaparsons',
-      icon: 'dribbble',
+      icon: 'dribbble'
     },
     gurushots: {
       platform: 'GuruShots',
       url: 'https://gurushots.com/ella.parsons/photos',
       icon: 'gurushots.png',
-      iconIsImage: true,
+      iconIsImage: true
     },
     instagram: {
       platform: 'Instagram',
       url: 'https://www.instagram.com/ella.photos00',
-      icon: 'instagram',
+      icon: 'instagram'
     },
     pinterest: {
       platform: 'Pinterest',
       url: 'https://www.pinterest.co.uk/ellaparsons1633',
-      icon: 'pinterest',
-    },
+      icon: 'pinterest'
+    }
   };
 
-  public static get commonWebsiteDomain(): IWebDomain {
+  public static get commonWebsiteDomain (): IWebDomain {
     return {
       url: this.WEBSITE_DOMAIN.replace('https://', ''),
-      secureUrl: this.WEBSITE_DOMAIN,
+      secureUrl: this.WEBSITE_DOMAIN
     };
   }
 
-  public static get commonName(): string {
+  public static get commonName (): string {
     return this.NAME;
   }
 
-  public static get commonMedia(): IMedias {
+  public static get commonMedia (): IMedias {
     return this.MEDIA;
   }
 
-  public static get commonEmail(): string {
+  public static get commonEmail (): string {
     return this.EMAIL;
   }
 }

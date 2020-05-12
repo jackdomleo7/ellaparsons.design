@@ -1,8 +1,10 @@
 <template>
   <div class="home">
     <section class="home__hero hero">
-      <img class="hero__img" src="/img/pink-wreath.png" alt="Pink wreath" />
-      <h2 class="hero__title">Design</h2>
+      <img class="hero__img" src="/img/pink-wreath.png" alt="Pink wreath">
+      <h2 class="hero__title">
+        Design
+      </h2>
     </section>
   </div>
 </template>

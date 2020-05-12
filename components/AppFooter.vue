@@ -1,15 +1,19 @@
 <template>
   <footer class="footer">
-    <h3 class="footer__title">Graphics-Design-Creative</h3>
+    <h3 class="footer__title">
+      Graphics-Design-Creative
+    </h3>
     <ul class="footer__social">
       <li v-for="(social, index) in socialLinks" :key="index" :aria-setsize="socialLinks.length" :aria-posinset="index + 1">
         <site-link type="external" :link="social.url" :aria-label="social.tooltip" data-cooltipz-dir="top" class="footer__social-link">
-          <img v-if="social.iconIsImage" :src="'/img/' + social.icon" />
+          <img v-if="social.iconIsImage" :src="'/img/' + social.icon">
           <svg-icon v-else :name="social.icon" />
         </site-link>
       </li>
     </ul>
-    <p class="footer__copy"><small>&copy;{{ new Date().getFullYear() }} <site-link type="external" link="https://ellaparsons.design">Ella Parsons</site-link>, <site-link type="external" link="https://jackdomleo.dev">Jack Domleo</site-link>. <br/>All rights reserved.</small></p>
+    <p class="footer__copy">
+      <small>&copy;{{ new Date().getFullYear() }} <site-link type="external" link="https://ellaparsons.design">Ella Parsons</site-link>, <site-link type="external" link="https://jackdomleo.dev">Jack Domleo</site-link>. <br>All rights reserved.</small>
+    </p>
   </footer>
 </template>
 
@@ -26,7 +30,7 @@ interface ISocialLinks {
 }
 
 @Component({
-  components: { SiteLink },
+  components: { SiteLink }
 })
 export default class AppFooter extends Vue {
   private readonly socialLinks: ISocialLinks[] = [
@@ -34,35 +38,35 @@ export default class AppFooter extends Vue {
       tooltip: this.commonMedia.pinterest.platform,
       icon: this.commonMedia.pinterest.icon,
       url: this.commonMedia.pinterest.url,
-      iconIsImage: this.commonMedia.pinterest.iconIsImage,
+      iconIsImage: this.commonMedia.pinterest.iconIsImage
     },
     {
       tooltip: this.commonMedia.instagram.platform,
       icon: this.commonMedia.instagram.icon,
       url: this.commonMedia.instagram.url,
-      iconIsImage: this.commonMedia.instagram.iconIsImage,
+      iconIsImage: this.commonMedia.instagram.iconIsImage
     },
     {
       tooltip: this.commonMedia.gurushots.platform,
       icon: this.commonMedia.gurushots.icon,
       url: this.commonMedia.gurushots.url,
-      iconIsImage: this.commonMedia.gurushots.iconIsImage,
+      iconIsImage: this.commonMedia.gurushots.iconIsImage
     },
     {
       tooltip: this.commonMedia.dribbble.platform,
       icon: this.commonMedia.dribbble.icon,
       url: this.commonMedia.dribbble.url,
-      iconIsImage: this.commonMedia.dribbble.iconIsImage,
+      iconIsImage: this.commonMedia.dribbble.iconIsImage
     },
     {
       tooltip: this.commonMedia.designcrowd.platform,
       icon: this.commonMedia.designcrowd.icon,
       url: this.commonMedia.designcrowd.url,
-      iconIsImage: this.commonMedia.designcrowd.iconIsImage,
-    },
+      iconIsImage: this.commonMedia.designcrowd.iconIsImage
+    }
   ];
 
-  private get commonMedia(): IMedias {
+  private get commonMedia (): IMedias {
     return CommonInfo.commonMedia;
   }
 }

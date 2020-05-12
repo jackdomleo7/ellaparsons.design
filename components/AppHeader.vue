@@ -1,7 +1,9 @@
 <template>
   <header class="app-header">
     <nuxt-link to="/" class="app-header__logo-link">
-      <h1 class="app-header__logo">Ella Parsons | Designer &amp; Photographer</h1>
+      <h1 class="app-header__logo">
+        Ella Parsons | Designer &amp; Photographer
+      </h1>
     </nuxt-link>
     <nav class="app-header__nav">
       <ul class="app-header__nav-list">
@@ -16,7 +18,7 @@
       <button class="mobile__hamburger-button" @click="toggleMobileNav">
         <svg-icon class="mobile__hamburger" :name="!isMobileNavExpanded ? 'hamburger' : 'cross'" />
       </button>
-      <nav class="mobile__nav" v-if="isMobileNavExpanded">
+      <nav v-if="isMobileNavExpanded" class="mobile__nav">
         <ul class="mobile__list">
           <li v-for="(navLink, index) in navLinks" :key="index" class="mobile__item" @click="toggleMobileNav">
             <nuxt-link :to="navLink.link" class="mobile__link" :aria-current="isCurrent(navLink.link) ? 'page' : null">
@@ -26,7 +28,7 @@
           </li>
         </ul>
       </nav>
-      <div class="mobile__nav-mask" v-if="isMobileNavExpanded" @click="toggleMobileNav"></div>
+      <div v-if="isMobileNavExpanded" class="mobile__nav-mask" @click="toggleMobileNav" />
     </section>
   </header>
 </template>
@@ -42,25 +44,25 @@ export default class AppHeader extends Vue {
     {
       text: 'Home',
       link: '/',
-      icon: 'home',
+      icon: 'home'
     },
     {
       text: 'BIO',
       link: '/bio',
-      icon: 'user',
+      icon: 'user'
     },
     {
       text: 'Work',
       link: '/work',
-      icon: 'pencil-ruler',
-    },
+      icon: 'pencil-ruler'
+    }
   ];
 
-  private toggleMobileNav() {
+  private toggleMobileNav () {
     this.isMobileNavExpanded = !this.isMobileNavExpanded;
   }
 
-  private isCurrent(link: string): boolean {
+  private isCurrent (link: string): boolean {
     return this.$route.path === link;
   }
 }

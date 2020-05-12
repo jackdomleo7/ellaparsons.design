@@ -11,8 +11,8 @@
       type === 'external' || type === 'email'
         ? 'nofollow'
         : type === 'tel'
-        ? 'noopener noreferrer'
-        : null
+          ? 'noopener noreferrer'
+          : null
     "
   >
     <slot />
@@ -27,7 +27,7 @@ export default class SiteLink extends Vue {
   @Prop({
     validator: (value: string) =>
       ['email', 'external', 'internal', 'tel'].includes(value),
-    required: true,
+    required: true
   })
   private readonly type!: string;
 

@@ -15,8 +15,8 @@ import { AppHeader, AppFooter } from '@/components';
 @Component({
   components: {
     AppHeader,
-    AppFooter,
-  },
+    AppFooter
+  }
 })
 export default class Default extends Vue {}
 </script>
