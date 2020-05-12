@@ -41,7 +41,12 @@ interface IWorkImage {
 }
 
 @Component({
-  components: { SiteLink }
+  components: { SiteLink },
+  head () {
+    return {
+      title: 'Work'
+    };
+  }
 })
 export default class Work extends Vue {
   private get commonMedia (): IMedias {
