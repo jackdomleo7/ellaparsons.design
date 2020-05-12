@@ -68,6 +68,7 @@ export default {
   },
   loading: { color: '#e34396' },
   css: [
+    '@/assets/styles/main.scss'
   ],
   plugins: [
   ],
