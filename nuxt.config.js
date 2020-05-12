@@ -81,6 +81,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
     '@nuxtjs/svg-sprite',
+    '@nuxtjs/sitemap' // Ensure this is always last in array
   ],
   build: {
     postcss: {
