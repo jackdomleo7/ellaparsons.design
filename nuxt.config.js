@@ -54,7 +54,7 @@ export default {
       name: 'Ella Parsons',
       author: 'Jack Domleo',
       description:
-        'I\'m <%= VUE_APP_NAME %> and I love anything and everything to do with design. I love taking photos and being outdoors.',
+        'Hi, I\'m Ella Parsons from Nottingham, UK. I love anything and everything to do with design, taking photos and being outdoors.',
       ogType: 'profile',
       ogHost: 'https://ellaparsons.design',
       ogImage: {
