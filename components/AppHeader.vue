@@ -1,6 +1,7 @@
 <template>
   <header class="app-header">
     <nuxt-link to="/" class="app-header__logo-link">
+      <img src="/img/nav-logo.png" alt="EP icon">
       <h1 class="app-header__logo">
         Ella Parsons | Designer &amp; Photographer
       </h1>
@@ -100,9 +101,23 @@ export default class AppHeader extends Vue {
       padding-right: 1rem;
       text-decoration: none;
       width: 55%;
+      display: flex;
+      align-items: center;
+
+      img {
+        margin-right: 1rem;
+        height: 5rem;
+        width: 5rem;
+      }
 
       @media (max-width: 845px) {
         width: auto;
+
+        img {
+          height: 3.5rem;
+          width: 3.5rem;
+          margin-right: 0.5rem;
+        }
       }
     }
   }
@@ -228,7 +243,7 @@ export default class AppHeader extends Vue {
     user-select: none;
     width: 100%;
 
-    &.router-link-exact-active {
+    &.nuxt-link-exact-active {
       background-color: var(--color-pink);
     }
   }
