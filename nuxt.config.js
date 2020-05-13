@@ -58,7 +58,7 @@ export default {
       ogType: 'profile',
       ogHost: 'https://ellaparsons.design',
       ogImage: {
-        path: '/open-graph.png',
+        path: '/img/open-graph.png',
         width: '1200',
         height: '630',
         type: 'image/png'
