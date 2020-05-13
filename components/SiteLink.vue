@@ -38,7 +38,6 @@ export default class SiteLink extends Vue {
 
 <style lang="scss" scoped>
 .link {
-  color: inherit;
   font-weight: 700;
   text-decoration: underline;
 }
