@@ -24,8 +24,8 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/sitemap": "^2.3.0",
     "@nuxtjs/svg-sprite": "^0.4.10",
-    "autoprefixer": "^9.7.6",
-    "cooltipz-css": "^1.6.0",
+    "autoprefixer": "^9.8.0",
+    "cooltipz-css": "^1.6.1",
     "cssnano": "^4.1.10",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
@@ -34,10 +34,10 @@
     "vue-property-decorator": "^8.4.2"
   },
   "devDependencies": {
-    "@nuxt/typescript-build": "^0.6.6",
+    "@nuxt/typescript-build": "^1.0.0",
     "@nuxtjs/eslint-config-typescript": "^2.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.0.0",
+    "eslint": "^7.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-prettier": "^3.1.3",
