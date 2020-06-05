@@ -53,8 +53,8 @@ export default class AppHeader extends Vue {
       icon: 'user'
     },
     {
-      text: 'Work',
-      link: '/work',
+      text: 'Portfolio',
+      link: '/portfolio',
       icon: 'pencil-ruler'
     }
   ];

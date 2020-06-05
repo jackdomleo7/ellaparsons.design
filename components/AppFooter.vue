@@ -12,7 +12,7 @@
       </li>
     </ul>
     <p class="footer__copy">
-      <small>&copy;{{ new Date().getFullYear() }} <site-link type="external" link="https://ellaparsons.design">Ella Parsons</site-link>, <site-link type="external" link="https://jackdomleo.dev">Jack Domleo</site-link>. <br>All rights reserved.</small>
+      <small>&copy;{{ new Date().getFullYear() }} <site-link type="external" link="https://ellaparsons.design">Ella Parsons</site-link>. <br>All rights reserved.</small>
     </p>
   </footer>
 </template>

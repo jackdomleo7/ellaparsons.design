@@ -30,7 +30,8 @@ body {
   background: url("/img/marble-background.png") no-repeat center center fixed var(--color-grey-200);
   color: var(--color-grey-900);
   font-family: "Playfair Display", Georgia, Palatino, serif;
-  font-size: 100%;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 

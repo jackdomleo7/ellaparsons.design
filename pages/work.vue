@@ -1,5 +1,6 @@
 <template>
   <div class="work">
+    <h1>Work</h1>
     <p>
       Below are some artwork jobs/logos I have done during my time at <site-link type="external" link="https://www.mirical-emblems.com">
         MiRiCal Emblems
@@ -186,7 +187,7 @@ export default class Work extends Vue {
 .work {
   margin: 0 auto;
   max-width: 72em;
-  padding: 1rem 0;
+  padding: 1rem;
   text-align: center;
 
   @media (min-width: 48em) {
@@ -200,15 +201,22 @@ export default class Work extends Vue {
     list-style-type: none;
     margin: 0;
     padding-left: 0;
+    gap: 1rem;
+
+    @media (min-width: 48em) {
+      gap: 1.5rem;
+    }
   }
 
   &__figure {
-    align-items: center;
-    display: flex;
     height: 14rem;
-    justify-content: center;
-    margin: 1rem;
     width: 14rem;
+    background: var(--color-grey-50);
+    padding: 1em;
+    margin: 0;
+    width: 100%;
+    transition: 1s ease all;
+    box-shadow: 2px 2px 4px 0 var(--color-grey-400);
   }
 
   &__image {
