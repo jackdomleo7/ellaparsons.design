@@ -35,21 +35,19 @@ export default class Home extends Vue {}
   align-items: center;
   display: flex;
   justify-content: center;
+  position: relative;
+  width: 85%;
 
   &__title {
-    animation-delay: 1s;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-    animation-name: bounceIn;
-    animation-timing-function: linear;
+    animation: bounceIn 0.5s 1s forwards linear;
     color: var(--color-grey-700);
     font-family: "Sacramento", cursive;
-    font-size: 5rem;
+    font-size: 3.8rem;
     margin: 0;
     opacity: 0;
 
-    @media (max-width: 380px) {
-      font-size: 4.5rem;
+    @media (min-width: 23.75em) {
+      font-size: 5rem;
     }
   }
 

@@ -1,6 +1,9 @@
 <template>
   <div class="portfolio">
     <h1>Portfolio</h1>
+    <div class="bio__avatar avatar">
+      <img src="/img/memoji-laptop.png" alt="Memoji">
+    </div>
     <p>Below is a list of a few logo designs I have created in my spare time. The design briefs come from <a href="https://designers.designcrowd.co.uk/designer.aspx?designerId=842923" rel="nofollow noopener" target="_blank">Design Crowd</a>. I can follow a design brief really clearly and if a brief isn't provided, I use my initiative and creativity to take over to design something I hope the client likes.</p>
     <p>
       You can see <site-link link="/work" type="internal">
@@ -9,6 +12,7 @@
         MiRiCal Emblems
       </site-link>.
     </p>
+    <p><em>If the images aren't displaying correctly, you can view them <site-link type="external" link="https://github.com/JDomleo/ellaparsons.design/tree/master/static/img/portfolio">here</site-link>.</em></p>
     <section>
       <div v-if="activeSpotlight !== null">
         <img :src="'/img/portfolio/' + reversePortfolio()[activeSpotlight - 1].image + '.png'">
@@ -294,6 +298,11 @@ Logo Text: eTaqreer`
 
   @media screen and (min-width: 41em) {
     column-count: 2;
+  }
+
+  li {
+    display: inline-block;
+    width: 100%;
   }
 }
 
