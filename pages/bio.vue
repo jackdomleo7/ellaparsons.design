@@ -43,16 +43,17 @@
         </site-link>.
       </p>
     </article>
+    <contact class="bio__contact" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
-import SiteLink from '@/components/SiteLink.vue';
+import { SiteLink, Contact } from '@/components';
 import CommonInfo, { IMedias } from '@/middleware/CommonInfo.ts';
 
 @Component({
-  components: { SiteLink },
+  components: { SiteLink, Contact },
   head () {
     return {
       title: 'BIO'
@@ -75,28 +76,26 @@ export default class Bio extends Vue {
   color: var(--color-grey-900);
   margin: 1rem 2rem;
   display: grid;
+  gap: 3rem 10rem;
   grid-template: auto auto auto auto / 1fr;
-  grid-template-areas: 'title' 'subtitle' 'avatar' 'bio';
+  grid-template-areas: 'title' 'subtitle' 'avatar' 'bio' 'contact';
+  align-items: flex-start;
 
-  @media (min-width: 750px) {
+  @media (min-width: 81.25em) {
     margin: 1rem 3rem;
-    grid-template: auto auto auto / 2fr 1fr;
-    grid-template-areas: 'title avatar' 'subtitle avatar' 'bio avatar';
+    grid-template: auto auto auto / 1fr 1fr;
+    grid-template-areas: 'title avatar' 'subtitle avatar' 'bio contact';
 
     .bio__avatar {
       margin-top: 2rem;
     }
   }
 
-  @media (min-width: 1300px) {
-    margin: 1rem 4rem;
-  }
-
-  @media (min-width: 2000px) {
+  @media (min-width: 125em) {
     margin: 1rem 5rem;
   }
 
-  @media (min-width: 3000px) {
+  @media (min-width: 187.5em) {
     margin: 1rem 6rem;
   }
 
@@ -114,6 +113,10 @@ export default class Bio extends Vue {
 
   &__bio {
     grid-area: bio;
+  }
+
+  &__contact {
+    grid-area: contact;
   }
 }
 </style>

@@ -9,4 +9,32 @@
   border: 3px solid var(--color-grey-50);
   overflow: hidden;
   margin: 0 auto;
+
+  &:hover {
+    animation: hue 5s linear infinite;
+
+    img {
+      animation: hueback 5s linear infinite;
+    }
+  }
+}
+
+@keyframes hue {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes hueback {
+  0% {
+    filter: hue-rotate(360deg);
+  }
+
+  100% {
+    filter: hue-rotate(0deg);
+  }
 }
