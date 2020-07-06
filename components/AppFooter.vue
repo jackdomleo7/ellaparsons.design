@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'nuxt-property-decorator';
 import SiteLink from '@/components/SiteLink.vue';
 import CommonInfo, { IMedias } from '@/middleware/CommonInfo';
 
