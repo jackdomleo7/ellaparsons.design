@@ -12,7 +12,7 @@
         MiRiCal Emblems
       </site-link>.
     </p>
-    <p><em>If the images aren't displaying correctly, you can view them <site-link type="external" link="https://github.com/JDomleo/ellaparsons.design/tree/master/static/img/portfolio">here</site-link>.</em></p>
+    <p><em>If the images aren't displaying correctly, you can view them <site-link type="external" link="https://github.com/jackdomleo7/ellaparsons.design/tree/master/static/img/portfolio">here</site-link>.</em></p>
     <section>
       <div v-if="activeSpotlight !== null">
         <img :src="'/img/portfolio/' + reversePortfolio()[activeSpotlight - 1].image + '.png'">
