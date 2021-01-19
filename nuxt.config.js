@@ -36,6 +36,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/robots',
+    '@luxdamore/nuxt-prune-html',
     '@nuxtjs/sitemap' // Always declare last
   ],
   robots: {
