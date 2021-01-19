@@ -35,7 +35,12 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/robots',
   ],
+  robots: {
+    UserAgent: '*',
+    Allow: '/'
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
