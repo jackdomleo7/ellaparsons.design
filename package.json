@@ -2,6 +2,16 @@
   "name": "ellaparsons.design",
   "version": "1.0.0",
   "private": true,
+  "description": "Ella Parsons' portfolio website",
+  "author": {
+    "name": "Jack Domleo",
+    "url": "https://jackdomleo.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackdomleo7/ellaparsons.design.git"
+  },
+  "homepage": "https://ellaparsons.design",
   "scripts": {
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
