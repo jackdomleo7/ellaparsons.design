@@ -1,103 +1,52 @@
 export default {
-  mode: 'universal',
+  // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
+  ssr: false,
+
+  // Target (https://go.nuxtjs.dev/config-target)
+  target: 'static',
+
+  // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    __dangerouslyDisableSanitizers: ['script'],
-    script: [
-      {
-        hid: 'gtm-script1',
-        src: 'https://www.googletagmanager.com/gtag/js?id=UA-165367468-3',
-        defer: true
-      },
-      {
-        hid: 'gtm-script2',
-        innerHTML: `
-        if(window.location.hostname != "ellaparsons.design") {
-          window['ga-disable-UA-165367468-3'] = true;
-        }
-        else {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-  
-          gtag('config', 'UA-165367468-3');
-        }
-        `,
-        type: 'text/javascript',
-        charset: 'utf-8'
-      }
-    ],
-    titleTemplate: '%s | Ella Parsons - Designer & Photographer',
+    title: 'ellaparsons.design',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
-      { name: 'robots', content: 'index, follow' },
-      { name: 'msapplication-TileColor', content: '#e34396' },
-      {
-        name: 'msapplication-TileImage',
-        content: '/favicons/mstile-144x144.png'
-      },
-      { name: 'theme-color', content: '#e34396' }
+      { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' },
-      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' },
-      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' },
-      { rel: 'manifest', href: '/site.webmanifest' },
-      { rel: 'mask-icon', color: '#e34396', href: '/favicons/safari-pinned-tab.svg' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Josefin+Slab|Playfair+Display|Sacramento&display=swap' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  pwa: {
-    meta: {
-      name: 'Ella Parsons',
-      author: 'Jack Domleo',
-      description:
-        'Hi, I\'m Ella Parsons from Nottingham, UK. I love anything and everything to do with design, taking photos and being outdoors.',
-      ogType: 'profile',
-      ogHost: 'https://ellaparsons.design',
-      ogImage: {
-        path: '/img/open-graph.png',
-        width: '1200',
-        height: '630',
-        type: 'image/png'
-      },
-      twitterCard: 'summary_large_image'
-    }
-  },
-  loading: { color: '#e34396' },
+
+  // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
-    'normalize.css',
-    'node_modules/cooltipz-css/src/cooltipz',
-    '@/assets/styles/main.scss'
   ],
+
+  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
   ],
+
+  // Auto import components (https://go.nuxtjs.dev/config-components)
+  components: true,
+
+  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    '@nuxt/typescript-build'
+    // https://go.nuxtjs.dev/typescript
+    '@nuxt/typescript-build',
   ],
+
+  // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
+    // https://go.nuxtjs.dev/axios
+    '@nuxtjs/axios',
+    // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxtjs/dotenv',
-    '@nuxtjs/svg-sprite',
-    '@nuxtjs/sitemap' // Ensure this is always last in array
   ],
-  sitemap: {
-    hostname: 'https://ellaparsons.design',
-    exclude: ['/_icons']
-  },
+
+  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
+  axios: {},
+
+  // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-    postcss: {
-      plugins: {
-        autoprefixer: {},
-        cssnano: {}
-      }
-    }
-  },
-  generate: {
-    dir: 'docs',
-    fallback: '404.html'
-  },
-  publicPath: '/'
-};
+  }
+}

@@ -2,48 +2,31 @@
   "name": "ellaparsons.design",
   "version": "1.0.0",
   "private": true,
-  "description": "Portfolio website for Ella Parsons",
-  "author": {
-    "name": "Jack Domleo",
-    "url": "https://jackdomleo.dev"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jackdomleo7/ellaparsons.design.git"
-  },
-  "homepage": "https://ellaparsons.design",
   "scripts": {
-    "dev": "nuxt",
-    "lint": "eslint --fix --ext .ts,.js,.vue --ignore-path .eslintignore .",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate",
+    "test": "jest"
   },
   "dependencies": {
-    "@nuxtjs/dotenv": "^1.4.1",
-    "@nuxtjs/pwa": "^3.0.0-0",
-    "@nuxtjs/sitemap": "^2.4.0",
-    "@nuxtjs/svg-sprite": "^0.4.11",
-    "autoprefixer": "^9.8.4",
-    "cooltipz-css": "^1.6.4",
-    "cssnano": "^4.1.10",
-    "node-sass": "^4.14.1",
-    "normalize.css": "^8.0.1",
-    "nuxt": "^2.13.3",
-    "nuxt-property-decorator": "^2.7.2",
-    "sass-loader": "^9.0.1"
+    "@nuxt/typescript-runtime": "^2.0.0",
+    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/pwa": "^3.0.2",
+    "core-js": "^3.6.5",
+    "nuxt": "^2.14.6"
   },
   "devDependencies": {
-    "@nuxt/typescript-build": "^1.0.3",
-    "@nuxtjs/eslint-config-typescript": "^2.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.4.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-loader": "^4.0.2",
+    "@nuxt/types": "^2.14.6",
+    "@nuxt/typescript-build": "^2.0.3",
+    "@vue/test-utils": "^1.1.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^26.5.0",
+    "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-vue": "^6.2.2",
-    "prettier": "^2.0.5",
-    "vue-class-component": "^7.2.3",
-    "vue-property-decorator": "^9.0.0"
+    "jest": "^26.5.0",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.1",
+    "vue-jest": "^3.0.4"
   }
 }
