@@ -36,10 +36,15 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/robots',
+    '@nuxtjs/sitemap' // Always declare last
   ],
   robots: {
     UserAgent: '*',
     Allow: '/'
+  },
+  sitemap: {
+    hostname: process.env.BASE_URL,
+    exclude: ['/_icons']
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
