@@ -1,8 +1,7 @@
-export default {
-  // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
-  ssr: false,
+require('dotenv').config();
 
-  // Target (https://go.nuxtjs.dev/config-target)
+export default {
+  ssr: false,
   target: 'static',
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -17,8 +16,6 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
-  // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '@/assets/styles/main.scss'
   ],
@@ -26,21 +23,17 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
   ],
-
-  // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
-
-  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/google-analytics',
   ],
-
-  // Modules (https://go.nuxtjs.dev/config-modules)
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALYTICS_ID
+  },
   modules: [
-    // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
 
