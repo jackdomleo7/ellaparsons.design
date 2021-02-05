@@ -29,9 +29,16 @@ export default {
     '@nuxt/typescript-build',
     '@nuxtjs/dotenv',
     '@nuxtjs/google-analytics',
+    '@nuxtjs/prismic'
   ],
   googleAnalytics: {
     id: process.env.GOOGLE_ANALYTICS_ID
+  },
+  prismic: {
+    endpoint: 'https://ellaparsons-design.cdn.prismic.io/api/v2',
+    apiOptions: {
+      accessToken: process.env.PRISMIC_ACCESS_TOKEN
+    }
   },
   modules: [
     '@nuxtjs/axios',
