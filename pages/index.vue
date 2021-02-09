@@ -1,28 +1,8 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        ellaparsons.design
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+  <div>
+    <p v-if="$fetchState.pending">Fetching data</p>
+    <div class="home" v-else :style="{ backgroundImage: `url(${bgImage})` }">
+      <h1>{{ homepage.data.page_header[0].text }}</h1>
     </div>
   </div>
 </template>
@@ -31,46 +11,47 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 
 @Component
-export default class Index extends Vue {}
+export default class Index extends Vue {
+  private homepage!: any;
+
+  async fetch() {
+    try {
+      this.homepage = await this.$prismic.api.getSingle('homepage');
+      console.log(this.homepage);
+    }
+    catch(e) {
+      console.error(e);
+    }
+  }
+
+  private get bgImage(): string {
+    const header_background_image = this.homepage.data.header_background_image;
+    
+    if (window.matchMedia('(min-width: calc(120em + 1px))').matches) {
+      return header_background_image.url;
+    }
+    else if (window.matchMedia('(min-width: calc(64em + 1px))').matches) {
+      return header_background_image.laptop.url;
+    }
+    else if (window.matchMedia('(min-width: calc(48em + 1px))').matches) {
+      return header_background_image.tablet.url;
+    }
+    else {
+      return header_background_image.mobile.url;
+    }
+  }
+}
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+<style lang="scss" scoped>
+.home {
+  height: 100vh;
+	width: 100vw;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: grid;
+	place-items: center;
 }
 </style>
