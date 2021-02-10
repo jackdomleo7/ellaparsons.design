@@ -1,0 +1,39 @@
+::selection {
+  text-shadow: none;
+  color: #fff;
+  background-color: dodgerblue;
+}
+
+html {
+  font-family: serif;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  user-select: none;
+}
+
+button {
+  color: inherit;
+}
+
+svg {
+  height: 100%;
+  width: 100%;
+  fill: currentColor;
+  pointer-events: none;
+}
