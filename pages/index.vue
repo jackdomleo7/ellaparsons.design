@@ -5,10 +5,10 @@
       <section class="parallax center" :style="{ backgroundImage: `url(${bgImage(homepage.data.header_background_image)})` }">
         <h1>{{ homepage.data.page_header[0].text }}</h1>
       </section>
-      <section class="parallax center" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_me_background_image)})` }">
+      <section id="about" class="parallax center" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_me_background_image)})` }">
         <h2>About me</h2>
       </section>
-      <section class="portfolio">
+      <section id="portfolio" class="portfolio">
         <ul>
           <li class="portfolio__section parallax" v-for="(portfolio, index) in homepage.data.portfolio" :key="portfolio" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(portfolio.background_image)})` }">
             <prismic-rich-text class="portfolio__brief" :field="portfolio.brief" />
