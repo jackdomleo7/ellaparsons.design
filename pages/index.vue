@@ -1,8 +1,13 @@
 <template>
   <div>
     <p v-if="$fetchState.pending">Fetching data</p>
-    <div class="home" v-else :style="{ backgroundImage: `url(${bgImage})` }">
-      <h1>{{ homepage.data.page_header[0].text }}</h1>
+    <div v-else>
+      <section class="home" :style="{ backgroundImage: `url(${bgImage(homepage.data.header_background_image)})` }">
+        <h1>{{ homepage.data.page_header[0].text }}</h1>
+      </section>
+      <section class="about" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_me_background_image)})` }">
+        <h2>About me</h2>
+      </section>
     </div>
   </div>
 </template>
@@ -24,27 +29,29 @@ export default class Index extends Vue {
     }
   }
 
-  private get bgImage(): string {
-    const header_background_image = this.homepage.data.header_background_image;
-    
-    if (window.matchMedia('(min-width: calc(120em + 1px))').matches) {
-      return header_background_image.url;
+  private bgImage(image: any): string {
+    const pxToEm = (px: number): string => {
+      return `${px / 16}em`;
+    };
+
+    if (window.matchMedia(`(min-width: calc(${pxToEm(1920)} + 1px))`).matches) {
+      return image.url;
     }
-    else if (window.matchMedia('(min-width: calc(64em + 1px))').matches) {
-      return header_background_image.laptop.url;
+    else if (window.matchMedia(`(min-width: calc(${pxToEm(1024)} + 1px))`).matches) {
+      return image.laptop.url;
     }
-    else if (window.matchMedia('(min-width: calc(48em + 1px))').matches) {
-      return header_background_image.tablet.url;
+    else if (window.matchMedia(`(min-width: calc(${pxToEm(768)} + 1px))`).matches) {
+      return image.tablet.url;
     }
     else {
-      return header_background_image.mobile.url;
+      return image.mobile.url;
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.home {
+.home, .about {
   height: 100vh;
 	width: 100vw;
 	background-attachment: fixed;
