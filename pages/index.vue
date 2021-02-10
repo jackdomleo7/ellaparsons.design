@@ -2,11 +2,18 @@
   <div>
     <p v-if="$fetchState.pending">Fetching data</p>
     <div v-else>
-      <section class="home" :style="{ backgroundImage: `url(${bgImage(homepage.data.header_background_image)})` }">
+      <section class="parallax center" :style="{ backgroundImage: `url(${bgImage(homepage.data.header_background_image)})` }">
         <h1>{{ homepage.data.page_header[0].text }}</h1>
       </section>
-      <section class="about" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_me_background_image)})` }">
+      <section class="parallax center" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_me_background_image)})` }">
         <h2>About me</h2>
+      </section>
+      <section class="portfolio">
+        <ul>
+          <li class="portfolio__section parallax" v-for="(portfolio, index) in homepage.data.portfolio" :key="portfolio" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(portfolio.background_image)})` }">
+            <prismic-rich-text class="portfolio__brief" :field="portfolio.brief" />
+          </li>
+        </ul>
       </section>
     </div>
   </div>
@@ -51,14 +58,50 @@ export default class Index extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.home, .about {
+.parallax {
   height: 100vh;
 	width: 100vw;
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	display: grid;
+}
+
+.center {
+  display: grid;
 	place-items: center;
+}
+
+.portfolio {
+  > ul {
+    padding-left: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  &__section {
+    position: relative;
+
+    &:nth-child(odd) {
+      .portfolio__brief {
+        bottom: 0;
+      }
+    }
+
+    &:nth-child(even) {
+      .portfolio__brief {
+        top: 0;
+      }
+    }
+  }
+
+  &__brief {
+    padding: 3rem;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: inline-flex;
+    width: 30rem;
+    position: absolute;
+    left: 0;
+  }
 }
 </style>
