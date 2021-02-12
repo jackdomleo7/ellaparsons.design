@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Allison Script Regular";
+  src: local("Allison Script Regular"), url(~assets/fonts/allison-scriptregular.ttf) format("truetype");
+  font-display: swap;
+}
+
 ::selection {
   text-shadow: none;
   color: #fff;
@@ -20,6 +26,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 img {

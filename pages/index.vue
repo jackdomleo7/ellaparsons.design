@@ -2,10 +2,12 @@
   <div>
     <p v-if="$fetchState.pending">Fetching data</p>
     <div v-else>
-      <section class="parallax center" :style="{ backgroundImage: `url(${bgImage(homepage.data.header_background_image)})` }">
-        <h1>{{ homepage.data.page_header[0].text }}</h1>
+      <section class="parallax name" :style="{ backgroundImage: `url(${bgImage(homepage.data.header_background_image)})` }">
+        <div class="name__fixed">
+          <h1 class="name__heading">{{ homepage.data.page_header[0].text }}</h1>
+        </div>
       </section>
-      <section id="about" class="parallax center" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_me_background_image)})` }">
+      <section id="about" class="about parallax center" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_me_background_image)})` }">
         <h2>About me</h2>
       </section>
       <section id="portfolio" class="portfolio">
@@ -58,6 +60,37 @@ export default class Index extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.name {
+
+  &__fixed {
+    display: grid;
+    grid-template-areas: '.' '.' 'name';
+    place-items: center;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+
+    @media (min-width: 600px) {
+      grid-template-areas: '. .' '. .' '. name';
+    }
+  }
+
+  &__heading {
+    font-family: "Allison Script Regular", cursive;
+    color: var(--color-pink);
+    font-size: 2.8rem;
+    grid-area: name;
+
+    @media (min-width: 1024px) {
+      font-size: 4rem;
+    }
+
+    @media (min-width: 1600px) {
+      font-size: 6rem;
+    }
+  }
+}
+
 .parallax {
   height: 100vh;
 	width: 100vw;
@@ -72,6 +105,10 @@ export default class Index extends Vue {
 	place-items: center;
 }
 
+.about {
+  position: relative;
+}
+
 .portfolio {
   > ul {
     padding-left: 0;
@@ -81,27 +118,17 @@ export default class Index extends Vue {
 
   &__section {
     position: relative;
-
-    &:nth-child(odd) {
-      .portfolio__brief {
-        bottom: 0;
-      }
-    }
-
-    &:nth-child(even) {
-      .portfolio__brief {
-        top: 0;
-      }
-    }
+    height: 200vh;
   }
 
   &__brief {
     padding: 3rem;
     background-color: rgba(255, 255, 255, 0.6);
     display: inline-flex;
-    width: 30rem;
     position: absolute;
     left: 0;
+    bottom: 1.25rem;
+    max-width: 60vw;
   }
 }
 </style>
