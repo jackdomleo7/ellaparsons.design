@@ -7,7 +7,7 @@
           <h1 class="name__heading">{{ homepage.data.page_header[0].text }}</h1>
         </div>
       </section>
-      <section id="about" class="about parallax center" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_me_background_image)})` }">
+      <section id="about" class="about parallax center" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_background_image)})` }">
         <h2>About me</h2>
       </section>
       <section id="portfolio" class="portfolio">
