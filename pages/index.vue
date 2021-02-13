@@ -70,7 +70,7 @@ export default class Index extends Vue {
     height: 100%;
     width: 100%;
 
-    @media (min-width: 600px) {
+    @media (min-width: 38em) {
       grid-template-areas: '. .' '. .' '. name';
     }
   }
@@ -81,12 +81,16 @@ export default class Index extends Vue {
     font-size: 2.8rem;
     grid-area: name;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 64em) {
       font-size: 4rem;
     }
 
-    @media (min-width: 1600px) {
-      font-size: 6rem;
+    @media (min-width: 88em) {
+      font-size: 5.5rem;
+    }
+
+    @media (min-width: 106em) {
+      font-size: 7rem;
     }
   }
 }

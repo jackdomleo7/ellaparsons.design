@@ -4,9 +4,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "It Is Definitely Possible";
+  src: local("It Is Definitely Possible"), url(~assets/fonts/it-is-definitely-possible.regular.ttf) format("truetype");
+  font-display: swap;
+}
+
 ::selection {
   text-shadow: none;
-  color: #fff;
+  color: var(--color-white, #fff);
   background-color: dodgerblue;
 }
 
