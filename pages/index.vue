@@ -8,7 +8,10 @@
         </div>
       </section>
       <section id="about" class="about parallax center" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_background_image)})` }">
-        <h2>About me</h2>
+        <div>
+          <h2>{{ homepage.data.about_header[0].text }}</h2>
+          <prismic-rich-text class="about__description" :field="homepage.data.about_description" />
+        </div>
       </section>
       <section id="portfolio" class="portfolio">
         <ul>
@@ -96,7 +99,7 @@ export default class Index extends Vue {
 }
 
 .parallax {
-  height: 100vh;
+  min-height: 100vh;
 	width: 100vw;
 	background-attachment: fixed;
 	background-position: center;
@@ -111,6 +114,46 @@ export default class Index extends Vue {
 
 .about {
   position: relative;
+  display: grid;
+  grid-template-areas: '. . about';
+  padding: 1rem 0;
+
+  > div {
+    grid-area: about;
+    color: var(--color-white);
+    padding: 1rem;
+    margin: 1.5rem;
+    background-color: rgba(71, 74, 81, 0.6);
+
+    @media (min-width: 64em) {
+      background-color: transparent;
+      max-width: 40vw;
+    }
+
+    @media (min-width: 88em) {
+      max-width: 30vw;
+    }
+  }
+
+  h2 {
+    font-size: 1.5rem;
+
+    @media (min-width: 64em) {
+      font-size: 2rem;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    font-size: 0.875rem;
+
+    @media (min-width: 64em) {
+      font-size: 1rem;
+    }
+  }
 }
 
 .portfolio {
