@@ -10,6 +10,12 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Gotham";
+  src: local("Gotham"), url(~assets/fonts/GothamBook.ttf) format("truetype");
+  font-display: swap;
+}
+
 ::selection {
   text-shadow: none;
   color: var(--color-white, #fff);
@@ -17,7 +23,7 @@
 }
 
 html {
-  font-family: serif;
+  font-family: sans-serif;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
@@ -29,10 +35,20 @@ html {
 }
 
 body {
+  font-family: 'Gotham', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'It Is Definitely Possible', cursive;
 }
 
 img {
