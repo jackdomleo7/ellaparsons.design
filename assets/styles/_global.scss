@@ -51,6 +51,14 @@ h6 {
   font-family: 'It Is Definitely Possible', cursive;
 }
 
+h2 {
+  font-size: 1.5rem;
+
+  @media (min-width: 64em) {
+    font-size: 2rem;
+  }
+}
+
 img {
   height: auto;
   max-width: 100%;

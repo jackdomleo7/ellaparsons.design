@@ -14,9 +14,21 @@
         </div>
       </section>
       <section id="portfolio" class="portfolio">
+        <h2>Portfolio</h2>
         <ul>
           <li class="portfolio__section parallax" v-for="(portfolio, index) in homepage.data.portfolio" :key="portfolio" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(portfolio.background_image)})` }">
-            <prismic-rich-text class="portfolio__brief" :field="portfolio.brief" />
+            <div class="portfolio__brief">
+              <h3>{{ portfolio.header[0].text }}</h3>
+              <prismic-rich-text :field="portfolio.brief" />
+              <ul class="portfolio__tiles">
+                <li v-if="portfolio.tile_1.url">
+                  <prismic-image :field="portfolio.tile_1" />
+                </li>
+                <li v-if="portfolio.tile_2.url">
+                  <prismic-image :field="portfolio.tile_2" />
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
       </section>
@@ -64,7 +76,6 @@ export default class Index extends Vue {
 
 <style lang="scss" scoped>
 .name {
-
   &__fixed {
     display: grid;
     grid-template-areas: '.' '.' 'name';
@@ -135,14 +146,6 @@ export default class Index extends Vue {
     }
   }
 
-  h2 {
-    font-size: 1.5rem;
-
-    @media (min-width: 64em) {
-      font-size: 2rem;
-    }
-  }
-
   &__description {
     display: flex;
     flex-direction: column;
@@ -157,6 +160,16 @@ export default class Index extends Vue {
 }
 
 .portfolio {
+  position: relative;
+
+  h2 {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    z-index: 1;
+  }
+
   > ul {
     padding-left: 0;
     margin: 0;
@@ -165,17 +178,44 @@ export default class Index extends Vue {
 
   &__section {
     position: relative;
-    height: 200vh;
+    min-height: 300vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4.5rem 1.1rem;
+
+    &:first-of-type {
+      padding-top: 6rem;
+    }
+
+    @media (min-width: 64em) {
+      min-height: 250vh;
+    }
   }
 
   &__brief {
-    padding: 3rem;
+    padding: 1rem;
     background-color: rgba(255, 255, 255, 0.6);
-    display: inline-flex;
-    position: absolute;
-    left: 0;
-    bottom: 1.25rem;
-    max-width: 60vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: 50em) {
+      max-width: 35vw;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__tiles {
+    align-items: center;
+    display: grid;
+    grid-template: 1fr / auto;
+    gap: 2rem;
+    padding-left: 0;
+    list-style-type: none;
   }
 }
 </style>
