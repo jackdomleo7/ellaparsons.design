@@ -37,7 +37,6 @@
     "vue-clickaway": "^2.2.2"
   },
   "devDependencies": {
-    "@nuxt/image": "^0.3.0",
     "@nuxt/types": "^2.14.12",
     "@nuxt/typescript-build": "^2.0.4",
     "@types/vue-clickaway": "^2.2.0",
