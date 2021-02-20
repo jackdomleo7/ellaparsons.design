@@ -156,6 +156,7 @@ export default class Navigation extends Vue {
 		opacity: 1;
 		transform: rotate(0deg);
 		transition: 0.25s ease-in-out;
+    will-change: left;
 
 		&:nth-child(even) {
 			left: 50%;
@@ -170,16 +171,18 @@ export default class Navigation extends Vue {
 		&:nth-child(1),
 		&:nth-child(2) {
 			top: 0px;
+      will-change: top;
 		}
 
 		&:nth-child(3),
 		&:nth-child(4) {
 			top: 8px;
 			width: 36%;
+      will-change: opacity;
 		}
 
 		&:nth-child(3) {
-			left: 28%;
+			left: 29%;
 		}
 
 		&:nth-child(4) {
@@ -189,6 +192,7 @@ export default class Navigation extends Vue {
 		&:nth-child(5),
 		&:nth-child(6) {
 			top: 16px;
+      will-change: top;
 		}
 	}
 
