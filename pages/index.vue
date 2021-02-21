@@ -39,6 +39,8 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
 
+type Dictionary<T> = { [key: string]: T };
+
 @Component
 export default class Index extends Vue {
   private homepage!: any;
@@ -54,17 +56,23 @@ export default class Index extends Vue {
   }
 
   private bgImage(image: any): string {
+    const screenMaxWidth: Dictionary<number> = {
+      laptop: 1920,
+      tablet: 1024,
+      mobile: 768
+    };
+
     const pxToEm = (px: number): string => {
       return `${px / 16}em`;
     };
 
-    if (window.matchMedia(`(min-width: calc(${pxToEm(1920)} + 1px))`).matches) {
+    if (window.matchMedia(`(min-width: calc(${pxToEm(screenMaxWidth.laptop)} + 1px))`).matches || window.innerWidth > screenMaxWidth.laptop) {
       return image.url;
     }
-    else if (window.matchMedia(`(min-width: calc(${pxToEm(1024)} + 1px))`).matches) {
+    else if (window.matchMedia(`(min-width: calc(${pxToEm(screenMaxWidth.tablet)} + 1px))`).matches || window.innerWidth > screenMaxWidth.tablet) {
       return image.laptop.url;
     }
-    else if (window.matchMedia(`(min-width: calc(${pxToEm(768)} + 1px))`).matches) {
+    else if (window.matchMedia(`(min-width: calc(${pxToEm(screenMaxWidth.mobile)} + 1px))`).matches || window.innerWidth > screenMaxWidth.mobile) {
       return image.tablet.url;
     }
     else {
