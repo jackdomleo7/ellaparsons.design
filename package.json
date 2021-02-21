@@ -34,6 +34,7 @@
     "core-js": "^3.8.3",
     "modern-normalize": "^1.0.0",
     "nuxt": "^2.14.12",
+    "nuxt-rfg-icon": "^0.6.4",
     "vue-clickaway": "^2.2.2"
   },
   "devDependencies": {

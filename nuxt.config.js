@@ -29,6 +29,7 @@ export default {
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/dotenv',
+    '@nuxtjs/pwa',
     '@nuxtjs/google-analytics',
     '@nuxtjs/prismic'
   ],
@@ -43,12 +44,78 @@ export default {
   },
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    'nuxt-rfg-icon', // Icons are generated during `npm run build`
     '@nuxtjs/robots',
     '@nuxtjs/svg-sprite',
     '@luxdamore/nuxt-prune-html',
     '@nuxtjs/sitemap' // Always declare last
   ],
+  'rfg-icon': {
+    static: true,
+    masterPicture: 'static/icon.png',
+    force: true,
+    rfg: {
+      "iconsPath": "/",
+      "design": {
+        "ios": {
+          "pictureAspect": "backgroundAndMargin",
+          "backgroundColor": "#ffffff",
+          "margin": "21%",
+          "assets": {
+            "ios6AndPriorIcons": true,
+            "ios7AndLaterIcons": true,
+            "precomposedIcons": true,
+            "declareOnlyDefaultIcon": true
+          }
+        },
+        "desktopBrowser": {
+          "design": "raw"
+        },
+        "windows": {
+          "pictureAspect": "whiteSilhouette",
+          "backgroundColor": "#00aba9",
+          "onConflict": "override",
+          "assets": {
+            "windows80Ie10Tile": true,
+            "windows10Ie11EdgeTiles": {
+              "small": true,
+              "medium": true,
+              "big": true,
+              "rectangle": true
+            }
+          }
+        },
+        "androidChrome": {
+          "pictureAspect": "backgroundAndMargin",
+          "margin": "17%",
+          "backgroundColor": "#ffffff",
+          "themeColor": "#ffffff",
+          "manifest": {
+            "name": "Ella Parsons",
+            "display": "browser",
+            "orientation": "notSet",
+            "onConflict": "override",
+            "declared": true
+          },
+          "assets": {
+            "legacyIcon": true,
+            "lowResolutionIcons": true
+          }
+        },
+        "safariPinnedTab": {
+          "pictureAspect": "silhouette",
+          "themeColor": "#ffc0cb"
+        }
+      },
+      "settings": {
+        "scalingAlgorithm": "Mitchell",
+        "errorOnImageTooSmall": false,
+        "readmeFile": false,
+        "htmlCodeFile": false,
+        "usePathAsIs": false
+      }
+    }    
+  },
   robots: {
     UserAgent: '*',
     Allow: '/'
