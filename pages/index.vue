@@ -143,6 +143,7 @@ export default class Index extends Vue {
     padding: 1rem;
     margin: 1.5rem;
     background-color: rgba(71, 74, 81, 0.6);
+    backdrop-filter: blur(5px);
 
     @media (min-width: 64em) {
       background-color: transparent;
@@ -174,6 +175,7 @@ export default class Index extends Vue {
     margin: 1rem;
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
     position: absolute;
     z-index: 1;
   }
@@ -204,6 +206,7 @@ export default class Index extends Vue {
   &__brief {
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
     display: flex;
     flex-direction: column;
     gap: 1rem;
