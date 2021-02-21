@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <p v-if="$fetchState.pending">Fetching data</p>
     <div v-else>
       <section class="parallax name" :style="{ backgroundImage: `url(${bgImage(homepage.data.header_background_image)})` }">
@@ -33,7 +33,7 @@
         </ul>
       </section>
     </div>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
