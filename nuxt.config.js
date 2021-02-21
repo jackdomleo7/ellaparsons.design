@@ -1,20 +1,14 @@
 require('dotenv').config();
 
+const title = 'Ella Parsons - Designer & Photographer';
+
 export default {
   ssr: false,
   target: 'static',
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'Ella Parsons - Designer & Photographer',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    title: title,
   },
   css: [
     'modern-normalize/modern-normalize.css',
@@ -33,6 +27,14 @@ export default {
     '@nuxtjs/google-analytics',
     '@nuxtjs/prismic'
   ],
+  pwa: {
+    meta: {
+      description: 'Hi, I\'m Ella Parsons from Nottingham, UK. I love anything and everything to do with design, taking photos and being outdoors.',
+      themeColor: '#ffc0cb',
+      ogTitle: title,
+      ogHost: process.env.BASE_URL
+    }
+  },
   googleAnalytics: {
     id: process.env.GOOGLE_ANALYTICS_ID
   },
@@ -52,69 +54,9 @@ export default {
   ],
   'rfg-icon': {
     static: true,
+    staticPath: '/favicons/',
     masterPicture: 'static/icon.png',
-    force: true,
-    rfg: {
-      "iconsPath": "/",
-      "design": {
-        "ios": {
-          "pictureAspect": "backgroundAndMargin",
-          "backgroundColor": "#ffffff",
-          "margin": "21%",
-          "assets": {
-            "ios6AndPriorIcons": true,
-            "ios7AndLaterIcons": true,
-            "precomposedIcons": true,
-            "declareOnlyDefaultIcon": true
-          }
-        },
-        "desktopBrowser": {
-          "design": "raw"
-        },
-        "windows": {
-          "pictureAspect": "whiteSilhouette",
-          "backgroundColor": "#00aba9",
-          "onConflict": "override",
-          "assets": {
-            "windows80Ie10Tile": true,
-            "windows10Ie11EdgeTiles": {
-              "small": true,
-              "medium": true,
-              "big": true,
-              "rectangle": true
-            }
-          }
-        },
-        "androidChrome": {
-          "pictureAspect": "backgroundAndMargin",
-          "margin": "17%",
-          "backgroundColor": "#ffffff",
-          "themeColor": "#ffffff",
-          "manifest": {
-            "name": "Ella Parsons",
-            "display": "browser",
-            "orientation": "notSet",
-            "onConflict": "override",
-            "declared": true
-          },
-          "assets": {
-            "legacyIcon": true,
-            "lowResolutionIcons": true
-          }
-        },
-        "safariPinnedTab": {
-          "pictureAspect": "silhouette",
-          "themeColor": "#ffc0cb"
-        }
-      },
-      "settings": {
-        "scalingAlgorithm": "Mitchell",
-        "errorOnImageTooSmall": false,
-        "readmeFile": false,
-        "htmlCodeFile": false,
-        "usePathAsIs": false
-      }
-    }    
+    force: true, 
   },
   robots: {
     UserAgent: '*',
