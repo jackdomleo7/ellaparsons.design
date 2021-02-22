@@ -14,7 +14,7 @@
         </div>
       </section>
       <section id="portfolio" class="portfolio">
-        <h2>Portfolio</h2>
+        <h2>{{ homepage.data.portfolio_header[0].text }}</h2>
         <ul>
           <li class="portfolio__section parallax" v-for="(portfolio, index) in homepage.data.portfolio" :key="portfolio" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(portfolio.background_image)})` }">
             <div class="portfolio__brief">
@@ -26,6 +26,12 @@
                 </li>
                 <li v-if="portfolio.tile_2.url">
                   <prismic-image :field="portfolio.tile_2" />
+                </li>
+                <li v-if="portfolio.tile_3.url">
+                  <prismic-image :field="portfolio.tile_3" />
+                </li>
+                <li v-if="portfolio.tile_4.url">
+                  <prismic-image :field="portfolio.tile_4" />
                 </li>
               </ul>
             </div>
@@ -223,10 +229,14 @@ export default class Index extends Vue {
   &__tiles {
     align-items: center;
     display: grid;
-    grid-template: 1fr / auto;
-    gap: 2rem;
+    grid-template: auto / 1fr 1fr;
+    gap: 1rem;
     padding-left: 0;
     list-style-type: none;
+
+    @media (min-width: 50em) {
+      gap: 2rem;
+    }
   }
 }
 </style>
