@@ -237,6 +237,10 @@ export default class Index extends Vue {
     @media (min-width: 50em) {
       gap: 2rem;
     }
+
+    img {
+      background-color: var(--color-white);
+    }
   }
 }
 </style>
