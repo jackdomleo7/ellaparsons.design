@@ -47,18 +47,11 @@ export default {
   },
   modules: [
     '@nuxtjs/axios',
-    'nuxt-rfg-icon', // Icons are generated during `npm run build`
     '@nuxtjs/robots',
     '@nuxtjs/svg-sprite',
     '@luxdamore/nuxt-prune-html',
     '@nuxtjs/sitemap' // Always declare last
   ],
-  'rfg-icon': {
-    static: true,
-    staticPath: '/favicons/',
-    masterPicture: 'static/icon.png',
-    force: true, 
-  },
   robots: {
     UserAgent: '*',
     Allow: '/'
