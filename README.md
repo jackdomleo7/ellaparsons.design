@@ -9,6 +9,7 @@
   - `BASE_URL`
   - `GOOGLE_ANALYTICS_ID`
   - `PRISMIC_ACCESS_TOKEN`
+  - `FORMSPREE_ENDPOINT`
 
 ## Build Setup
 
