@@ -54,7 +54,6 @@ export default class Index extends Vue {
   async fetch() {
     try {
       this.homepage = await this.$prismic.api.getSingle('homepage');
-      console.log(this.homepage);
     }
     catch(e) {
       console.error(e);
