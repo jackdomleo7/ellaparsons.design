@@ -49,7 +49,6 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/robots',
     '@nuxtjs/svg-sprite',
-    '@luxdamore/nuxt-prune-html',
     '@nuxtjs/sitemap' // Always declare last
   ],
   robots: {
