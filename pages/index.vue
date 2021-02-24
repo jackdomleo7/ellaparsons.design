@@ -16,7 +16,7 @@
       <section id="portfolio" class="portfolio">
         <h2>{{ homepage.data.portfolio_header[0].text }}</h2>
         <ul>
-          <li class="portfolio__section parallax" v-for="(portfolio, index) in homepage.data.portfolio" :key="portfolio" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(portfolio.background_image)})` }">
+          <li class="portfolio__section parallax" v-for="(portfolio, index) in homepage.data.portfolio" :key="portfolio.header[0].text" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(portfolio.background_image)})` }">
             <div class="portfolio__brief">
               <h3>{{ portfolio.header[0].text }}</h3>
               <prismic-rich-text :field="portfolio.brief" />
