@@ -242,4 +242,16 @@ export default class Index extends Vue {
     }
   }
 }
+
+@supports not (background-attachment: fixed) {
+  .parallax {
+    background-attachment: scroll;
+  }
+
+  .portfolio__section {
+    min-height: 100vh;
+    max-height: 100vh;
+    padding: 1rem;
+  }
+}
 </style>
