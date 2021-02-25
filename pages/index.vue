@@ -94,8 +94,8 @@ export default class Index extends Vue {
     grid-template-areas: '.' '.' 'name';
     place-items: center;
     position: fixed;
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
 
     @media (min-width: 38em) {
       grid-template-areas: '. .' '. .' '. name';
