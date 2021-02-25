@@ -233,25 +233,37 @@ export default class Index extends Vue {
     padding-left: 0;
     list-style-type: none;
 
+    @supports not (gap: 1rem) {
+      margin: 0 1rem;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
     @media (min-width: 50em) {
       gap: 2rem;
+
+      @supports not (gap: 2rem) {
+        margin: 0 2rem;
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
     }
 
     img {
       background-color: var(--color-white);
     }
-  }
-}
-
-@supports not (background-attachment: fixed) {
-  .parallax {
-    background-attachment: scroll;
-  }
-
-  .portfolio__section {
-    min-height: 100vh;
-    max-height: 100vh;
-    padding: 1rem;
   }
 }
 </style>
