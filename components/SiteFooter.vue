@@ -1,6 +1,6 @@
 <template>
-  <footer class="footer" :class="{'footer--ios': iOS}">
-    <ul class="social-list" :class="{'social-list--ios': iOS}">
+  <footer class="footer" :class="{'footer--ios': safari}">
+    <ul class="social-list" :class="{'social-list--ios': safari}">
       <li v-for="(icon, index) in socialIcons" :key="icon.url" :aria-setsize="socialIcons.length" :aria-posinset="index + 1">
         <a :href="icon.url" rel="noopener nofollow" :aria-label="icon.text" data-cooltipz-dir="top">
           <svg-icon v-if="icon.icon" :name="icon.icon" />
@@ -12,7 +12,7 @@
       :action="formspree"
       method="POST"
       class="contact"
-      :class="{'contact--ios': iOS}"
+      :class="{'contact--ios': safari}"
     >
       <h2 class="contact--heading">Contact me</h2>
       <label class="textfield contact--email">
@@ -89,17 +89,8 @@ export default class SiteFooter extends Vue {
     return `https://formspree.io/${process.env.FORMSPREE_ENDPOINT}`;
   }
 
-  private get iOS(): boolean {
-    return [
-      'iPad Simulator',
-      'iPhone Simulator',
-      'iPod Simulator',
-      'iPad',
-      'iPhone',
-      'iPod'
-    ].includes(navigator.platform)
-    // iPad on iOS 13 detection
-    || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+  private get safari(): boolean {
+    return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
   }
 }
 </script>

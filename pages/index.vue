@@ -2,25 +2,25 @@
   <main>
     <p v-if="$fetchState.pending">Fetching data</p>
     <div v-else>
-      <section class="parallax name" :class="{'parallax--ios': iOS}" :style="{ backgroundImage: `url(${bgImage(homepage.data.header_background_image)})` }">
+      <section class="parallax name" :class="{'parallax--ios': iOS && safari}" :style="{ backgroundImage: `url(${bgImage(homepage.data.header_background_image)})` }">
         <div class="name__fixed">
           <h1 class="name__heading">{{ homepage.data.page_header[0].text }}</h1>
         </div>
       </section>
-      <section id="about" class="about parallax center" :class="{'parallax--ios': iOS}" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_background_image)})` }">
+      <section id="about" class="about parallax center" :class="{'parallax--ios': iOS && safari}" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_background_image)})` }">
         <div>
           <h2>{{ homepage.data.about_header[0].text }}</h2>
-          <prismic-rich-text class="about__description" :class="{'about__description--ios': iOS}" :field="homepage.data.about_description" />
+          <prismic-rich-text class="about__description" :class="{'about__description--ios': safari}" :field="homepage.data.about_description" />
         </div>
       </section>
       <section id="portfolio" class="portfolio">
         <h2>{{ homepage.data.portfolio_header[0].text }}</h2>
         <ul>
-          <li class="portfolio__section parallax" :class="{'parallax--ios': iOS}" v-for="(portfolio, index) in homepage.data.portfolio" :key="portfolio.header[0].text" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(portfolio.background_image)})` }">
-            <div v-rellax="{speed: -6, center: true}" class="portfolio__brief" :class="{'portfolio__brief--ios': iOS}">
+          <li class="portfolio__section parallax" :class="{'parallax--ios': iOS && safari}" v-for="(portfolio, index) in homepage.data.portfolio" :key="portfolio.header[0].text" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(portfolio.background_image)})` }">
+            <div v-rellax="{speed: -6, center: true}" class="portfolio__brief" :class="{'portfolio__brief--ios': safari}">
               <h3>{{ portfolio.header[0].text }}</h3>
               <prismic-rich-text :field="portfolio.brief" />
-              <ul class="portfolio__tiles" :class="{'portfolio__tiles--ios': iOS}">
+              <ul class="portfolio__tiles" :class="{'portfolio__tiles--ios': safari}">
                 <li v-if="portfolio.tile_1.url">
                   <prismic-image :field="portfolio.tile_1" />
                 </li>
@@ -71,6 +71,10 @@ export default class Index extends Vue {
     ].includes(navigator.platform)
     // iPad on iOS 13 detection
     || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+  }
+
+  private get safari(): boolean {
+    return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
   }
 
   private bgImage(image: any): string {
