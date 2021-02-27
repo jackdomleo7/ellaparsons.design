@@ -11,7 +11,7 @@
       </button>
       <h3>{{ portfolio.header[0].text }}</h3>
       <prismic-rich-text :field="portfolio.brief" />
-      <ul class="portfolio__tiles" :class="{'portfolio__tiles--ios': safari}">
+      <ul class="portfolio__tiles">
         <li v-if="portfolio.tile_1.url">
           <prismic-image :field="portfolio.tile_1" />
         </li>
@@ -159,36 +159,6 @@ export default class Portfolio extends Vue {
 
     img {
       background-color: var(--color-white);
-    }
-
-    &--ios {
-      > li {
-        margin: 0.5rem;
-
-        @media (min-width: 50em) {
-          margin: 1rem;
-        }
-
-        &:nth-child(1) {
-          margin-left: 0;
-          margin-top: 0;
-        }
-
-        &:nth-child(2) {
-          margin-top: 0;
-          margin-right: 0;
-        }
-
-        &:nth-child(3) {
-          margin-left: 0;
-          margin-bottom: 0;
-        }
-
-        &:nth-child(4) {
-          margin-bottom: 0;
-          margin-right: 0;
-        }
-      }
     }
   }
 }

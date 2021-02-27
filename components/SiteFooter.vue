@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer" :class="{'footer--ios': safari}">
+  <footer class="footer">
     <ul class="social-list" :class="{'social-list--ios': safari}">
       <li v-for="(icon, index) in socialIcons" :key="icon.url" :aria-setsize="socialIcons.length" :aria-posinset="index + 1">
         <a :href="icon.url" rel="noopener nofollow" :aria-label="icon.text" data-cooltipz-dir="top">
@@ -12,7 +12,6 @@
       :action="formspree"
       method="POST"
       class="contact"
-      :class="{'contact--ios': safari}"
     >
       <h2 class="contact--heading">Contact me</h2>
       <label class="textfield contact--email">
@@ -106,40 +105,6 @@ export default class SiteFooter extends Vue {
   color: var(--color-white);
   background-color: var(--color-grey);
   box-shadow: 20px 0 80px rgba(0,0,0,.7);
-
-  &--ios {
-    > * {
-      margin: 1rem 0;
-
-      &:first-child {
-        margin-top: 0;
-      }
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      @media (min-width: 64em) {
-        margin: 1rem;
-
-        &.social-list {
-          margin-top: 0;
-          margin-left: 0;
-        }
-
-        &.legal {
-          margin-bottom: 0;
-          margin-left: 0;
-        }
-
-        &.contact {
-          margin-top: 0;
-          margin-right: 0;
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
 
   @media (min-width: 64em) {
     grid-template-areas: 'social contact' 'legal contact';
@@ -297,48 +262,6 @@ export default class SiteFooter extends Vue {
 
   &--message {
     grid-area: message;
-  }
-
-  &--ios {
-    > * {
-      margin: 0.25rem;
-
-      &:first-child {
-        margin-top: 0;
-      }
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      @media (min-width: 40em) {
-        margin: 0.25rem;
-
-        &.contact--heading {
-          margin-top: 0;
-          margin-left: 0;
-          margin-right: 0;
-        }
-
-        &.contact--email {
-          margin-left: 0;
-        }
-
-        &.contact--name {
-          margin-right: 0;
-        }
-
-        &.contact--message {
-          margin-left: 0;
-          margin-right: 0;
-        }
-
-        &.btn {
-          margin-right: 0;
-          margin-bottom: 0;
-        }
-      }
-    }
   }
 
   .btn {
