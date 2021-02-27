@@ -113,6 +113,10 @@ export default class Index extends Vue {
     @media (min-width: 38em) {
       grid-template-areas: '. .' '. .' '. name';
     }
+
+    h1 {
+      font-weight: 400;
+    }
   }
 
   &__heading {
