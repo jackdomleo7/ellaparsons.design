@@ -14,7 +14,7 @@
       class="contact"
       :class="{'contact--ios': iOS}"
     >
-      <h2>Contact me</h2>
+      <h2 class="contact--heading">Contact me</h2>
       <label class="textfield contact--email">
         Your email <span class="textfield__required" aria-hidden="true">*</span><span class="sr-only">(required)</span>
         <span class="textfield__box">
@@ -291,7 +291,7 @@ export default class SiteFooter extends Vue {
     grid-template-areas: 'heading heading' 'email name' 'message message' 'btn btn';
   }
 
-  h2 {
+  &--heading {
     grid-area: heading;
   }
 
@@ -322,7 +322,7 @@ export default class SiteFooter extends Vue {
       @media (min-width: 40em) {
         margin: 0.25rem;
 
-        &h2 {
+        &.contact--heading {
           margin-top: 0;
           margin-left: 0;
           margin-right: 0;
