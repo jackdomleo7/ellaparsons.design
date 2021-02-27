@@ -61,7 +61,7 @@ export default class Index extends Vue {
   }
 
   private get iOS(): boolean {
-    return [
+    return !([
       'iPad Simulator',
       'iPhone Simulator',
       'iPod Simulator',
@@ -70,7 +70,7 @@ export default class Index extends Vue {
       'iPod'
     ].includes(navigator.platform)
     // iPad on iOS 13 detection
-    || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    || (navigator.userAgent.includes("Mac") && "ontouchend" in document))
   }
 
   private bgImage(image: any): string {
@@ -145,6 +145,14 @@ export default class Index extends Vue {
 
   &--ios {
     background-attachment: scroll;
+    background-position: unset;
+    background-repeat: repeat-y;
+    background-size: unset;
+    max-height: 200vh;
+
+    &.portfolio__section {
+      background-repeat: round;
+    }
   }
 }
 
