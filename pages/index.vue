@@ -17,7 +17,7 @@
         <h2>{{ homepage.data.portfolio_header[0].text }}</h2>
         <ul>
           <li class="portfolio__section parallax" :class="{'parallax--ios': iOS}" v-for="(portfolio, index) in homepage.data.portfolio" :key="portfolio.header[0].text" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(portfolio.background_image)})` }">
-            <div class="portfolio__brief" :class="{'portfolio__brief--ios': iOS}">
+            <div v-rellax="{speed: -6, center: true}" class="portfolio__brief" :class="{'portfolio__brief--ios': iOS}">
               <h3>{{ portfolio.header[0].text }}</h3>
               <prismic-rich-text :field="portfolio.brief" />
               <ul class="portfolio__tiles" :class="{'portfolio__tiles--ios': iOS}">
@@ -239,7 +239,7 @@ export default class Index extends Vue {
     min-height: 300vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 4.5rem 1.1rem;
 
     &:first-of-type {
