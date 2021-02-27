@@ -16,26 +16,7 @@
       <section id="portfolio" class="portfolio">
         <h2>{{ homepage.data.portfolio_header[0].text }}</h2>
         <ul>
-          <li class="portfolio__section parallax" :class="{'parallax--ios': iOS && safari}" v-for="(portfolio, index) in homepage.data.portfolio" :key="portfolio.header[0].text" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(portfolio.background_image)})` }">
-            <div v-rellax="{speed: -6, center: true}" class="portfolio__brief" :class="{'portfolio__brief--ios': safari}">
-              <h3>{{ portfolio.header[0].text }}</h3>
-              <prismic-rich-text :field="portfolio.brief" />
-              <ul class="portfolio__tiles" :class="{'portfolio__tiles--ios': safari}">
-                <li v-if="portfolio.tile_1.url">
-                  <prismic-image :field="portfolio.tile_1" />
-                </li>
-                <li v-if="portfolio.tile_2.url">
-                  <prismic-image :field="portfolio.tile_2" />
-                </li>
-                <li v-if="portfolio.tile_3.url">
-                  <prismic-image :field="portfolio.tile_3" />
-                </li>
-                <li v-if="portfolio.tile_4.url">
-                  <prismic-image :field="portfolio.tile_4" />
-                </li>
-              </ul>
-            </div>
-          </li>
+          <Portfolio v-for="(portfolio, index) in homepage.data.portfolio" :key="portfolio.header[0].text" :portfolio="portfolio" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(portfolio.background_image)})` }"></Portfolio>
         </ul>
       </section>
     </div>
@@ -44,6 +25,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
+import { isIOS, isSafari } from '@/helpers/safari';
 
 type Dictionary<T> = { [key: string]: T };
 
@@ -61,20 +43,11 @@ export default class Index extends Vue {
   }
 
   private get iOS(): boolean {
-    return [
-      'iPad Simulator',
-      'iPhone Simulator',
-      'iPod Simulator',
-      'iPad',
-      'iPhone',
-      'iPod'
-    ].includes(navigator.platform)
-    // iPad on iOS 13 detection
-    || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    return isIOS();
   }
 
   private get safari(): boolean {
-    return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    return isSafari();
   }
 
   private bgImage(image: any): string {
@@ -153,14 +126,6 @@ export default class Index extends Vue {
 
   &--ios {
     background-attachment: scroll;
-    background-position: unset;
-    background-repeat: repeat-y;
-    background-size: unset;
-    max-height: 200vh;
-
-    &.portfolio__section {
-      background-repeat: round;
-    }
   }
 }
 
@@ -236,101 +201,6 @@ export default class Index extends Vue {
     padding-left: 0;
     margin: 0;
     list-style-type: none;
-  }
-
-  &__section {
-    position: relative;
-    min-height: 300vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 4.5rem 1.1rem;
-
-    &:first-of-type {
-      padding-top: 6rem;
-    }
-
-    @media (min-width: 64em) {
-      min-height: 250vh;
-    }
-  }
-
-  &__brief {
-    padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(5px);
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    @media (min-width: 50em) {
-      max-width: 35vw;
-    }
-
-    h3 {
-      font-size: 1.5rem;
-    }
-
-    &--ios {
-      > * {
-        margin: 0.5rem 0;
-
-        &:first-child {
-          margin-top: 0;
-        }
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
-
-  &__tiles {
-    align-items: center;
-    display: grid;
-    grid-template: auto / 1fr 1fr;
-    gap: 1rem;
-    padding-left: 0;
-    list-style-type: none;
-
-    @media (min-width: 50em) {
-      gap: 2rem;
-    }
-
-    img {
-      background-color: var(--color-white);
-    }
-
-    &--ios {
-      > li {
-        margin: 0.5rem;
-
-        @media (min-width: 50em) {
-          margin: 1rem;
-        }
-
-        &:nth-child(1) {
-          margin-left: 0;
-          margin-top: 0;
-        }
-
-        &:nth-child(2) {
-          margin-top: 0;
-          margin-right: 0;
-        }
-
-        &:nth-child(3) {
-          margin-left: 0;
-          margin-bottom: 0;
-        }
-
-        &:nth-child(4) {
-          margin-bottom: 0;
-          margin-right: 0;
-        }
-      }
-    }
   }
 }
 </style>

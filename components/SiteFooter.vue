@@ -46,6 +46,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
+import { isSafari } from '@/helpers/safari';
 
 interface ISocial {
   text: string;
@@ -90,7 +91,7 @@ export default class SiteFooter extends Vue {
   }
 
   private get safari(): boolean {
-    return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    return isSafari();
   }
 }
 </script>
