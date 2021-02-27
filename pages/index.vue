@@ -10,17 +10,17 @@
       <section id="about" class="about parallax center" :class="{'parallax--ios': iOS}" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_background_image)})` }">
         <div>
           <h2>{{ homepage.data.about_header[0].text }}</h2>
-          <prismic-rich-text class="about__description" :field="homepage.data.about_description" />
+          <prismic-rich-text class="about__description" :class="{'about__description--ios': iOS}" :field="homepage.data.about_description" />
         </div>
       </section>
       <section id="portfolio" class="portfolio">
         <h2>{{ homepage.data.portfolio_header[0].text }}</h2>
         <ul>
           <li class="portfolio__section parallax" :class="{'parallax--ios': iOS}" v-for="(portfolio, index) in homepage.data.portfolio" :key="portfolio.header[0].text" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(portfolio.background_image)})` }">
-            <div class="portfolio__brief">
+            <div class="portfolio__brief" :class="{'portfolio__brief--ios': iOS}">
               <h3>{{ portfolio.header[0].text }}</h3>
               <prismic-rich-text :field="portfolio.brief" />
-              <ul class="portfolio__tiles">
+              <ul class="portfolio__tiles" :class="{'portfolio__tiles--ios': iOS}">
                 <li v-if="portfolio.tile_1.url">
                   <prismic-image :field="portfolio.tile_1" />
                 </li>
@@ -61,7 +61,7 @@ export default class Index extends Vue {
   }
 
   private get iOS(): boolean {
-    return !([
+    return [
       'iPad Simulator',
       'iPhone Simulator',
       'iPod Simulator',
@@ -70,7 +70,7 @@ export default class Index extends Vue {
       'iPod'
     ].includes(navigator.platform)
     // iPad on iOS 13 detection
-    || (navigator.userAgent.includes("Mac") && "ontouchend" in document))
+    || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
   }
 
   private bgImage(image: any): string {
@@ -199,6 +199,20 @@ export default class Index extends Vue {
     @media (min-width: 64em) {
       font-size: 1rem;
     }
+
+    &--ios {
+      ::v-deep > * {
+        margin: 0.25rem 0;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }
 
@@ -252,6 +266,20 @@ export default class Index extends Vue {
     h3 {
       font-size: 1.5rem;
     }
+
+    &--ios {
+      > * {
+        margin: 0.5rem 0;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 
   &__tiles {
@@ -262,40 +290,42 @@ export default class Index extends Vue {
     padding-left: 0;
     list-style-type: none;
 
-    @supports not (gap: 1rem) {
-      > li {
-        margin: 0 1rem;
-
-        &:first-of-type {
-          margin-left: 0;
-        }
-
-        &:last-of-type {
-          margin-right: 0;
-        }
-      }
-    }
-
     @media (min-width: 50em) {
       gap: 2rem;
-
-      @supports not (gap: 2rem) {
-        > li {
-          margin: 0 2rem;
-
-          &:first-of-type {
-            margin-left: 0;
-          }
-
-          &:last-of-type {
-            margin-right: 0;
-          }
-        }
-      }
     }
 
     img {
       background-color: var(--color-white);
+    }
+
+    &--ios {
+      > li {
+        margin: 0.5rem;
+
+        @media (min-width: 50em) {
+          margin: 1rem;
+        }
+
+        &:nth-child(1) {
+          margin-left: 0;
+          margin-top: 0;
+        }
+
+        &:nth-child(2) {
+          margin-top: 0;
+          margin-right: 0;
+        }
+
+        &:nth-child(3) {
+          margin-left: 0;
+          margin-bottom: 0;
+        }
+
+        &:nth-child(4) {
+          margin-bottom: 0;
+          margin-right: 0;
+        }
+      }
     }
   }
 }
