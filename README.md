@@ -26,6 +26,9 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+# Deploy the website to gh-pages branch
+$ npm run deploy
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
