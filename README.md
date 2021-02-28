@@ -1,5 +1,7 @@
 # ellaparsons.design
 
+![Website](https://img.shields.io/website?down_color=red&down_message=Offline&style=for-the-badge&up_color=green&up_message=Online&url=https%3A%2F%2Fellaparsons.design)
+
 ## Project setup
 
 - Clone the respoitory from https://github.com/jackdomleo7/ellaparsons.design
