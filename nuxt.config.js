@@ -5,8 +5,6 @@ const title = 'Ella Parsons - Designer & Photographer';
 export default {
   ssr: false,
   target: 'static',
-
-  // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: title,
   },
@@ -56,7 +54,7 @@ export default {
   },
   sitemap: {
     hostname: process.env.BASE_URL,
-    exclude: ['/_icons']
+    exclude: ['/_icons', '/preview']
   },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
