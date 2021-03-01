@@ -145,6 +145,7 @@ export default class SiteFooter extends Vue {
 
       @media (prefers-reduced-motion: no-preference) {
         transition: 160ms ease-in-out;
+        will-change: transform;
       }
     }
   }
