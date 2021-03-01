@@ -18,14 +18,14 @@
         Your email <span class="textfield__required" aria-hidden="true">*</span><span class="sr-only">(required)</span>
         <span class="textfield__box">
           <svg-icon name="at" />
-          <input v-model="contactForm.email" type="email" name="email" required>
+          <input v-model="contactForm.email" type="email" name="email" autocomplete="email" required>
         </span>
       </label>
       <label class="textfield contact--name">
         Your name <span class="textfield__required" aria-hidden="true">*</span><span class="sr-only">(required)</span>
         <span class="textfield__box">
           <svg-icon name="user" />
-          <input v-model="contactForm.name" type="text" name="name" required>
+          <input v-model="contactForm.name" type="text" name="name" autocomplete="name" required>
         </span>
       </label>
       <label class="textfield contact--message">
