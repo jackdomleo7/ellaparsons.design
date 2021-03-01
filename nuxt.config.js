@@ -14,8 +14,7 @@ export default {
     '@/assets/styles/main.scss'
   ],
   plugins: [
-    '@/plugins/clickaway.client.ts',
-    { src: '~~/node_modules/vue-rellax/lib/nuxt-plugin', ssr: false }
+    '@/plugins/clickaway.client.ts'
   ],
   components: true,
   buildModules: [

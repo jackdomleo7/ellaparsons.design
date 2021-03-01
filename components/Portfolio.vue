@@ -4,7 +4,7 @@
       Info
       <svg-icon name="newspaper" />
     </button>
-    <div v-if="showBrief" v-rellax="{speed: iOS ? 0 : -6, center: true}" class="portfolio__brief" :class="{'portfolio__brief--ios': iOS}">
+    <div v-if="showBrief" class="portfolio__brief" :class="{'portfolio__brief--ios': iOS}">
       <button class="portfolio__close" v-if="iOS" @click="showBrief = false">
         <svg-icon name="cross" />
         <span class="sr-only">Close</span>
@@ -58,7 +58,7 @@ export default class Portfolio extends Vue {
     min-height: 300vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     padding: 4.5rem 1.1rem;
 
     &:first-of-type {
