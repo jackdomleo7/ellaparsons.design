@@ -13,7 +13,7 @@
   },
   "homepage": "https://ellaparsons.design",
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt --open",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -21,7 +21,6 @@
     "deploy": "npm run generate && push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.13.0",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/prismic": "^1.2.4",

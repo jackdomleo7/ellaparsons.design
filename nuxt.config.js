@@ -42,7 +42,6 @@ export default {
     }
   },
   modules: [
-    '@nuxtjs/axios',
     '@nuxtjs/robots',
     '@nuxtjs/svg-sprite',
     '@nuxtjs/sitemap' // Always declare last
@@ -55,11 +54,6 @@ export default {
     hostname: process.env.BASE_URL,
     exclude: ['/_icons', '/preview']
   },
-
-  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
-
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
   }
 }
