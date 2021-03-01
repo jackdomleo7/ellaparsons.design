@@ -1,10 +1,17 @@
-# [ellaparsons.design](https://ellaparsons.design)
+# ellaparsons.design
 
-> Portfolio website for Ella Parsons
+![Website](https://img.shields.io/website?down_color=red&down_message=Offline&style=for-the-badge&up_color=green&up_message=Online&url=https%3A%2F%2Fellaparsons.design)
 
-https://ellaparsons.design
+## Project setup
 
-![Website status](https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fellaparsons.design "Website status")
+- Clone the respoitory from https://github.com/jackdomleo7/ellaparsons.design
+- `cd ellaparsons.design`
+- `npm i`
+- Create a new `.env` file in the root of the project with the following variables (this file is ignored from git):
+  - `BASE_URL`
+  - `GOOGLE_ANALYTICS_ID`
+  - `PRISMIC_ACCESS_TOKEN`
+  - `FORMSPREE_ENDPOINT`
 
 ## Build Setup
 
@@ -21,6 +28,9 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+# Deploy the website to gh-pages branch
+$ npm run deploy
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).

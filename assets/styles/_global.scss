@@ -1,47 +1,47 @@
-:root {
-  --cooltipz-bg-color: var(--color-grey-50);
-  --cooltipz-text-color: var(--color-grey-900);
+@font-face {
+  font-family: "Allison Script Regular";
+  src: local("Allison Script Regular"), url(~assets/fonts/allison-scriptregular.ttf) format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "It Is Definitely Possible";
+  src: local("It Is Definitely Possible"), url(~assets/fonts/it-is-definitely-possible.regular.ttf) format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: local("Montserrat"), url(~assets/fonts/Montserrat-Light.ttf) format("truetype");
+  font-display: swap;
 }
 
 ::selection {
-  background-color: var(--color-pink);
-  color: var(--color-grey-50);
   text-shadow: none;
+  color: var(--color-black, #fff);
+  background-color: var(--color-pink);
 }
 
 html {
+  font-family: sans-serif;
   box-sizing: border-box;
-  font-family: serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
-}
-
-img {
-  height: auto;
-  max-width: 100%;
-  user-select: none;
+  margin: 0;
 }
 
 body {
-  background: url("/img/marble-background.png") no-repeat center center fixed var(--color-grey-200);
-  color: var(--color-grey-900);
-  font-family: "Playfair Display", Georgia, Palatino, serif;
-  line-height: 1.5;
+  font-family: 'Montserrat', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (min-width: 120em), (min-height: 67.5em) {
-    background-size: cover;
-  }
-}
-
-a {
-  color: inherit;
+  overflow-x: hidden;
 }
 
 h1,
@@ -50,16 +50,34 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Josefin Slab", Georgia, Palatino, serif;
+  font-family: 'It Is Definitely Possible', cursive;
 }
 
-p {
-  font-family: Georgia, Palatino, serif;
+h2 {
+  font-size: 1.5rem;
+
+  @media (min-width: 64em) {
+    font-size: 2rem;
+  }
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  user-select: none;
+}
+
+button {
+  color: inherit;
 }
 
 svg {
   height: 100%;
   width: 100%;
-  pointer-events: none;
   fill: currentColor;
+  pointer-events: none;
+}
+
+a {
+  color: var(--color-pink);
 }

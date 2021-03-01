@@ -1,92 +1,206 @@
 <template>
-  <div class="home">
-    <section class="home__hero hero">
-      <img class="hero__img" src="/img/pink-wreath.png" alt="Pink wreath">
-      <h2 class="hero__title">
-        Design
-      </h2>
-    </section>
-  </div>
+  <main>
+    <p v-if="$fetchState.pending">Fetching data</p>
+    <div v-else>
+      <section class="parallax name" :class="{'parallax--ios': iOS && safari}" :style="{ backgroundImage: `url(${bgImage(homepage.data.header_background_image)})` }">
+        <div class="name__fixed">
+          <h1 class="name__heading">{{ homepage.data.page_header[0].text }}</h1>
+        </div>
+      </section>
+      <section id="about" class="about parallax center" :class="{'parallax--ios': iOS && safari}" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_background_image)})` }">
+        <div>
+          <h2>{{ homepage.data.about_header[0].text }}</h2>
+          <prismic-rich-text class="about__description" :class="{'about__description--ios': safari}" :field="homepage.data.about_description" />
+        </div>
+      </section>
+      <section id="portfolio" class="portfolio">
+        <h2>{{ homepage.data.portfolio_header[0].text }}</h2>
+        <ul>
+          <Portfolio v-for="(portfolio, index) in homepage.data.portfolio" :key="portfolio.header[0].text" :portfolio="portfolio" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(portfolio.background_image)})` }"></Portfolio>
+        </ul>
+      </section>
+    </div>
+  </main>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator';
+import { Vue, Component } from 'nuxt-property-decorator';
+import { isIOS, isSafari } from '@/helpers/safari';
 
-@Component({
-  head () {
-    return {
-      title: 'Home'
-    };
-  }
-})
-export default class Home extends Vue {}
-</script>
+type Dictionary<T> = { [key: string]: T };
 
-<style lang="scss" scoped>
-.home {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: center;
-}
+@Component
+export default class Index extends Vue {
+  private homepage!: any;
 
-.hero {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  width: 85%;
-
-  &__title {
-    animation: bounceIn 0.5s 1s forwards linear;
-    color: var(--color-grey-700);
-    font-family: "Sacramento", cursive;
-    font-size: 3.8rem;
-    margin: 0;
-    opacity: 0;
-
-    @media (min-width: 23.75em) {
-      font-size: 5rem;
+  async fetch() {
+    try {
+      this.homepage = await this.$prismic.api.getSingle('homepage');
+    }
+    catch(e) {
+      console.error(e);
     }
   }
 
-  &__img {
-    animation: 1s ease spin-anticlockwise;
+  private get iOS(): boolean {
+    return isIOS();
+  }
+
+  private get safari(): boolean {
+    return isSafari();
+  }
+
+  private bgImage(image: any): string {
+    const screenMaxWidth: Dictionary<number> = {
+      laptop: 1920,
+      tablet: 1024,
+      mobile: 768
+    };
+
+    const pxToEm = (px: number): string => {
+      return `${px / 16}em`;
+    };
+
+    if (window.matchMedia(`(min-width: calc(${pxToEm(screenMaxWidth.laptop)} + 1px))`).matches || window.innerWidth > screenMaxWidth.laptop) {
+      return image.url;
+    }
+    else if (window.matchMedia(`(min-width: calc(${pxToEm(screenMaxWidth.tablet)} + 1px))`).matches || window.innerWidth > screenMaxWidth.tablet) {
+      return image.laptop.url;
+    }
+    else if (window.matchMedia(`(min-width: calc(${pxToEm(screenMaxWidth.mobile)} + 1px))`).matches || window.innerWidth > screenMaxWidth.mobile) {
+      return image.tablet.url;
+    }
+    else {
+      return image.mobile.url;
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.name {
+  &__fixed {
+    display: grid;
+    grid-template-areas: '.' '.' 'name';
+    place-items: center;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+
+    @media (min-width: 38em) {
+      grid-template-areas: '. .' '. .' '. name';
+    }
+
+    h1 {
+      font-weight: 400;
+    }
+  }
+
+  &__heading {
+    font-family: "Allison Script Regular", cursive;
+    color: var(--color-pink);
+    font-size: 2.8rem;
+    grid-area: name;
+
+    @media (min-width: 64em) {
+      font-size: 4rem;
+    }
+
+    @media (min-width: 88em) {
+      font-size: 5.5rem;
+    }
+
+    @media (min-width: 106em) {
+      font-size: 7rem;
+    }
+  }
+}
+
+.parallax {
+  min-height: 100vh;
+	width: 100vw;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+  &--ios {
+    background-attachment: scroll;
+  }
+}
+
+.center {
+  display: grid;
+	place-items: center;
+}
+
+.about {
+  position: relative;
+  display: grid;
+  grid-template-areas: '. . about';
+  padding: 1rem 0;
+
+  > div {
+    grid-area: about;
+    color: var(--color-white);
+    padding: 1rem;
+    margin: 1.5rem;
+    background-color: rgba(71, 74, 81, 0.6);
+    backdrop-filter: blur(5px);
+
+    @media (min-width: 64em) {
+      background-color: transparent;
+      max-width: 40vw;
+    }
+
+    @media (min-width: 88em) {
+      max-width: 30vw;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    font-size: 0.875rem;
+
+    @media (min-width: 64em) {
+      font-size: 1rem;
+    }
+
+    &--ios {
+      ::v-deep > * {
+        margin: 0.25rem 0;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.portfolio {
+  position: relative;
+
+  h2 {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
     position: absolute;
-  }
-}
-
-@keyframes spin-anticlockwise {
-  0% {
-    opacity: 0;
-    transform: rotate(180deg);
+    z-index: 1;
   }
 
-  100% {
-    opacity: 1;
-    transform: rotate(0deg);
-  }
-}
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.3) translate3d(0, 0, 0);
-  }
-
-  50% {
-    opacity: 0.9;
-    transform: scale(1.1);
-  }
-
-  80% {
-    opacity: 1;
-    transform: scale(0.89);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1) translate3d(0, 0, 0);
+  > ul {
+    padding-left: 0;
+    margin: 0;
+    list-style-type: none;
   }
 }
 </style>
