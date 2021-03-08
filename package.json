@@ -14,9 +14,9 @@
   "homepage": "https://ellaparsons.design",
   "scripts": {
     "dev": "nuxt --open",
-    "build": "nuxt build",
+    "build": "nuxt build --modern=client",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate -m",
     "test": "jest",
     "deploy": "npm run generate && push-dir --dir=dist --branch=gh-pages --cleanup"
   },

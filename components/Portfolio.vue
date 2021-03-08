@@ -10,19 +10,19 @@
         <span class="sr-only">Close</span>
       </button>
       <h3>{{ portfolio.header[0].text }}</h3>
-      <prismic-rich-text :field="portfolio.brief" />
+      <prismic-rich-text :field="portfolio.brief" loading="lazy" height="304" width="304" />
       <ul class="portfolio__tiles">
         <li v-if="portfolio.tile_1.url">
-          <prismic-image :field="portfolio.tile_1" />
+          <prismic-image :field="portfolio.tile_1" loading="lazy" height="304" width="304" />
         </li>
         <li v-if="portfolio.tile_2.url">
-          <prismic-image :field="portfolio.tile_2" />
+          <prismic-image :field="portfolio.tile_2" loading="lazy" height="304" width="304" />
         </li>
         <li v-if="portfolio.tile_3.url">
-          <prismic-image :field="portfolio.tile_3" />
+          <prismic-image :field="portfolio.tile_3" loading="lazy" height="304" width="304" />
         </li>
         <li v-if="portfolio.tile_4.url">
-          <prismic-image :field="portfolio.tile_4" />
+          <prismic-image :field="portfolio.tile_4" loading="lazy" height="304" width="304" />
         </li>
       </ul>
     </div>

@@ -4,7 +4,7 @@
       <li v-for="(icon, index) in socialIcons" :key="icon.url" :aria-setsize="socialIcons.length" :aria-posinset="index + 1">
         <a :href="icon.url" rel="noopener nofollow" :aria-label="icon.text" data-cooltipz-dir="top">
           <svg-icon v-if="icon.icon" :name="icon.icon" />
-          <img v-else-if="icon.img" :src="`/img/${icon.img}`" :alt="icon.text" />
+          <img v-else-if="icon.img" :src="`/img/${icon.img}`" :alt="icon.text" loading="lazy" height="32" width="32" />
         </a>
       </li>
     </ul>
@@ -18,20 +18,20 @@
         Your email <span class="textfield__required" aria-hidden="true">*</span><span class="sr-only">(required)</span>
         <span class="textfield__box">
           <svg-icon name="at" />
-          <input v-model="contactForm.email" @change="autosave" type="email" name="email" autocomplete="email" required>
+          <input v-model="contactForm.email" @change="autosave" type="email" name="email" autocomplete="email" inputmode="email" required>
         </span>
       </label>
       <label class="textfield contact--name">
         Your name <span class="textfield__required" aria-hidden="true">*</span><span class="sr-only">(required)</span>
         <span class="textfield__box">
           <svg-icon name="user" />
-          <input v-model="contactForm.name" @change="autosave" type="text" name="name" autocomplete="name" required>
+          <input v-model="contactForm.name" @change="autosave" type="text" name="name" autocomplete="name" inputmode="text" required>
         </span>
       </label>
       <label class="textfield contact--message">
         Your message <span class="textfield__required" aria-hidden="true">*</span><span class="sr-only">(required)</span>
         <span class="textfield__box">
-          <textarea v-model="contactForm.message" @change="autosave" name="message" required />
+          <textarea v-model="contactForm.message" @change="autosave" name="message" inputmode="text" required />
         </span>
       </label>
 
