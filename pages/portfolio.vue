@@ -6,7 +6,7 @@
       <ul class="portfolio">
         <li v-for="(image, index) in portfolio.data.images" :key="image.header[0].text" :aria-setsize="portfolio.data.images.length" :aria-posinset="index + 1">
           <figure>
-            <prismic-image :field="image.image" loading="lazy" />
+            <prismic-image :field="image.image" loading="lazy" height="343" width="343" />
             <figcaption>
               <h2>{{ image.header[0].text }}</h2>
               <prismic-rich-text :field="image.caption" />
