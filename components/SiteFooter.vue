@@ -18,20 +18,20 @@
         Your email <span class="textfield__required" aria-hidden="true">*</span><span class="sr-only">(required)</span>
         <span class="textfield__box">
           <svg-icon name="at" />
-          <input v-model="contactForm.email" @change="autosave" type="email" name="email" autocomplete="email" required>
+          <input v-model="contactForm.email" @change="autosave" type="email" name="email" autocomplete="email" inputmode="email" required>
         </span>
       </label>
       <label class="textfield contact--name">
         Your name <span class="textfield__required" aria-hidden="true">*</span><span class="sr-only">(required)</span>
         <span class="textfield__box">
           <svg-icon name="user" />
-          <input v-model="contactForm.name" @change="autosave" type="text" name="name" autocomplete="name" required>
+          <input v-model="contactForm.name" @change="autosave" type="text" name="name" autocomplete="name" inputmode="text" required>
         </span>
       </label>
       <label class="textfield contact--message">
         Your message <span class="textfield__required" aria-hidden="true">*</span><span class="sr-only">(required)</span>
         <span class="textfield__box">
-          <textarea v-model="contactForm.message" @change="autosave" name="message" required />
+          <textarea v-model="contactForm.message" @change="autosave" name="message" inputmode="text" required />
         </span>
       </label>
 
