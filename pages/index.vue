@@ -13,10 +13,10 @@
           <prismic-rich-text class="about__description" :class="{'about__description--ios': safari}" :field="homepage.data.about_description" />
         </div>
       </section>
-      <section id="portfolio" class="portfolio">
+      <section id="featured" class="featured">
         <h2>{{ homepage.data.portfolio_header[0].text }}</h2>
         <ul>
-          <Portfolio v-for="(portfolio, index) in homepage.data.portfolio" :key="portfolio.header[0].text" :portfolio="portfolio" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(portfolio.background_image)})` }"></Portfolio>
+          <FeaturedItem v-for="(featured, index) in homepage.data.portfolio" :key="featured.header[0].text" :featured="featured" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(featured.background_image)})` }"></FeaturedItem>
         </ul>
       </section>
     </div>
@@ -185,7 +185,7 @@ export default class Index extends Vue {
   }
 }
 
-.portfolio {
+.featured {
   position: relative;
 
   h2 {
