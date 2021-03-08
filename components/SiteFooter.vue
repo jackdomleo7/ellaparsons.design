@@ -4,7 +4,7 @@
       <li v-for="(icon, index) in socialIcons" :key="icon.url" :aria-setsize="socialIcons.length" :aria-posinset="index + 1">
         <a :href="icon.url" rel="noopener nofollow" :aria-label="icon.text" data-cooltipz-dir="top">
           <svg-icon v-if="icon.icon" :name="icon.icon" />
-          <img v-else-if="icon.img" :src="`/img/${icon.img}`" :alt="icon.text" />
+          <img v-else-if="icon.img" :src="`/img/${icon.img}`" :alt="icon.text" loading="lazy" height="32" width="32" />
         </a>
       </li>
     </ul>
