@@ -13,16 +13,16 @@
       <prismic-rich-text :field="featured.brief" />
       <ul class="featured__tiles">
         <li v-if="featured.tile_1.url">
-          <prismic-image :field="featured.tile_1" loading="lazy" />
+          <prismic-image :field="featured.tile_1" loading="lazy" height="304" width="304" />
         </li>
         <li v-if="featured.tile_2.url">
-          <prismic-image :field="featured.tile_2" loading="lazy" />
+          <prismic-image :field="featured.tile_2" loading="lazy" height="304" width="304" />
         </li>
         <li v-if="featured.tile_3.url">
-          <prismic-image :field="featured.tile_3" loading="lazy" />
+          <prismic-image :field="featured.tile_3" loading="lazy" height="304" width="304" />
         </li>
         <li v-if="featured.tile_4.url">
-          <prismic-image :field="featured.tile_4" loading="lazy" />
+          <prismic-image :field="featured.tile_4" loading="lazy" height="304" width="304" />
         </li>
       </ul>
     </div>
