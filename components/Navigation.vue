@@ -97,6 +97,7 @@ export default class Navigation extends Vue {
     padding: 1rem;
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-align: right;
 
     &::before {
       content: '';
