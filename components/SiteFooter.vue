@@ -8,11 +8,7 @@
         </a>
       </li>
     </ul>
-    <form
-      :action="formspree"
-      method="POST"
-      class="contact"
-    >
+    <form :action="formspree" method="POST" class="contact">
       <h2 class="contact--heading">Contact me</h2>
       <label class="textfield contact--email">
         Your email <span class="textfield__required" aria-hidden="true">*</span><span class="sr-only">(required)</span>
@@ -162,14 +158,8 @@ export default class SiteFooter extends Vue {
 
   &--ios {
     > li {
-      margin: 0 0.5rem;
-
-      &:first-of-type {
-        margin-left: 0;
-      }
-
-      &:last-of-type {
-        margin-right: 0;
+      &:not(:first-of-type):not(:last-of-type) {
+        margin: 0 0.5rem;
       }
     }
   }

@@ -69,14 +69,8 @@ h1 {
     align-items: center;
 
     > * {
-      margin: 0.25rem 0;
-
-      &:first-child {
-        margin-top: 0;
-      }
-
-      &:last-child {
-        margin-bottom: 0;
+      &:not(:first-child):not(:last-child) {
+        margin: 0.25rem 0;
       }
     }
   }
