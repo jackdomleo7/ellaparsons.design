@@ -4,7 +4,7 @@
     <template v-else>
       <h1>{{ portfolio.data.page_header[0].text }}</h1>
       <ul class="portfolio">
-        <li v-for="(image, index) in portfolio.data.images" :key="image.header[0].text" :aria-setsize="portfolio.data.images.length" :aria-posinset="index + 1">
+        <li v-for="(image, index) in imagesLatestFirst()" :key="image.header[0].text" :aria-setsize="portfolio.data.images.length" :aria-posinset="index + 1">
           <figure>
             <prismic-image :field="image.image" loading="lazy" height="343" width="343" />
             <figcaption>
@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
+import { Component, Vue } from 'nuxt-property-decorator';
 
 @Component
 export default class Portfolio extends Vue {
@@ -32,6 +32,10 @@ export default class Portfolio extends Vue {
     catch(e) {
       console.error(e);
     }
+  }
+
+  private imagesLatestFirst(): any {
+    return this.portfolio.data.images.reverse();
   }
 }
 </script>
