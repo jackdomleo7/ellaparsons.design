@@ -42,12 +42,8 @@ export default class Navigation extends Vue {
       url: '/'
     },
     {
-      text: 'About',
-      url: '#about'
-    },
-    {
       text: 'Portfolio',
-      url: '#portfolio'
+      url: '/portfolio'
     }
   ];
 
@@ -99,9 +95,9 @@ export default class Navigation extends Vue {
     color: var(--color-pink);
     font-size: 1.5rem;
     padding: 1rem;
-    text-align: right;
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-align: right;
 
     &::before {
       content: '';

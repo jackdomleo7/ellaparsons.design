@@ -1,28 +1,28 @@
 <template>
-  <li class="portfolio__section parallax" :class="{'parallax--ios portfolio__section--ios': iOS && safari}">
-    <button class="portfolio__info" v-if="iOS && !showBrief" @click="showBrief = true">
+  <li class="featured__section parallax" :class="{'parallax--ios featured__section--ios': iOS && safari}">
+    <button class="featured__info" v-if="iOS && !showBrief" @click="showBrief = true">
       Info
       <svg-icon name="newspaper" />
     </button>
-    <div v-if="showBrief" class="portfolio__brief" :class="{'portfolio__brief--ios': iOS}">
-      <button class="portfolio__close" v-if="iOS" @click="showBrief = false">
+    <div v-if="showBrief" class="featured__brief" :class="{'featured__brief--ios': iOS}">
+      <button class="featured__close" v-if="iOS" @click="showBrief = false">
         <svg-icon name="cross" />
         <span class="sr-only">Close</span>
       </button>
-      <h3>{{ portfolio.header[0].text }}</h3>
-      <prismic-rich-text :field="portfolio.brief" loading="lazy" height="304" width="304" />
-      <ul class="portfolio__tiles">
-        <li v-if="portfolio.tile_1.url">
-          <prismic-image :field="portfolio.tile_1" loading="lazy" height="304" width="304" />
+      <h3>{{ featured.header[0].text }}</h3>
+      <prismic-rich-text :field="featured.brief" />
+      <ul class="featured__tiles">
+        <li v-if="featured.tile_1.url">
+          <prismic-image :field="featured.tile_1" loading="lazy" height="304" width="304" />
         </li>
-        <li v-if="portfolio.tile_2.url">
-          <prismic-image :field="portfolio.tile_2" loading="lazy" height="304" width="304" />
+        <li v-if="featured.tile_2.url">
+          <prismic-image :field="featured.tile_2" loading="lazy" height="304" width="304" />
         </li>
-        <li v-if="portfolio.tile_3.url">
-          <prismic-image :field="portfolio.tile_3" loading="lazy" height="304" width="304" />
+        <li v-if="featured.tile_3.url">
+          <prismic-image :field="featured.tile_3" loading="lazy" height="304" width="304" />
         </li>
-        <li v-if="portfolio.tile_4.url">
-          <prismic-image :field="portfolio.tile_4" loading="lazy" height="304" width="304" />
+        <li v-if="featured.tile_4.url">
+          <prismic-image :field="featured.tile_4" loading="lazy" height="304" width="304" />
         </li>
       </ul>
     </div>
@@ -34,12 +34,12 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator';
 import { isIOS, isSafari } from '@/helpers/safari';
 
 @Component
-export default class Portfolio extends Vue {
+export default class FeaturedItem extends Vue {
   private showBrief: boolean = !this.iOS;
 
   @Prop({
     required: true
-  }) private readonly portfolio!: any;
+  }) private readonly featured!: any;
 
   private get iOS(): boolean {
     return isIOS();
@@ -52,7 +52,7 @@ export default class Portfolio extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.portfolio {
+.featured {
   &__section {
     position: relative;
     min-height: 300vh;
