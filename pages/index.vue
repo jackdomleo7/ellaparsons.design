@@ -14,9 +14,9 @@
         </div>
       </section>
       <section id="featured" class="featured">
-        <h2>{{ homepage.data.portfolio_header[0].text }}</h2>
+        <h2>{{ homepage.data.featured_header[0].text }}</h2>
         <ul>
-          <FeaturedItem v-for="(featured, index) in homepage.data.portfolio" :key="featured.header[0].text" :featured="featured" :aria-setsize="homepage.data.portfolio.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(featured.background_image)})` }"></FeaturedItem>
+          <FeaturedItem v-for="(featured, index) in homepage.data.featured" :key="featured.header[0].text" :featured="featured" :aria-setsize="homepage.data.featured.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(featured.background_image)})` }"></FeaturedItem>
         </ul>
       </section>
     </div>
