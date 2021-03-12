@@ -171,8 +171,14 @@ export default class Index extends Vue {
 
     &--ios {
       ::v-deep > * {
-        &:not(:first-child):not(:last-child) {
-          margin: 0.25rem 0;
+        margin: 0.25rem 0;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
         }
       }
     }

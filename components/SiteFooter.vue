@@ -10,13 +10,16 @@
     </ul>
     <form :action="formspree" method="POST" class="contact">
       <h2 class="contact--heading">Contact me</h2>
-      <label class="textfield contact--email">
-        Your email <span class="textfield__required" aria-hidden="true">*</span><span class="sr-only">(required)</span>
-        <span class="textfield__box">
-          <svg-icon name="at" />
-          <input v-model="contactForm.email" @change="autosave" type="email" name="email" autocomplete="email" inputmode="email" required>
-        </span>
-      </label>
+      <div class="contact--email">
+        <label class="textfield">
+          Your email <span class="textfield__required" aria-hidden="true">*</span><span class="sr-only">(required)</span>
+          <span class="textfield__box">
+            <svg-icon name="at" />
+            <input v-model="contactForm.email" @change="autosave" type="email" name="email" autocomplete="email" inputmode="email" required>
+          </span>
+        </label>
+        <p v-if="!$v.contactForm.email.email" class="contact--error">Enter a valid email address</p>
+      </div>
       <label class="textfield contact--name">
         Your name <span class="textfield__required" aria-hidden="true">*</span><span class="sr-only">(required)</span>
         <span class="textfield__box">
@@ -31,7 +34,7 @@
         </span>
       </label>
 
-      <button class="btn" type="submit" :disabled="!(contactForm.email && contactForm.name && contactForm.message)">
+      <button class="btn" type="submit" :disabled="$v.contactForm.$invalid">
         Send
       </button>
     </form>
@@ -41,6 +44,11 @@
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator';
+
+import { Validations } from 'vuelidate-property-decorators';
+import { email, required } from 'vuelidate/lib/validators';
+import { validationMixin } from 'vuelidate';
+
 import { isSafari } from '@/helpers/safari';
 
 interface ISocial {
@@ -56,7 +64,9 @@ interface IContactForm {
   message: string;
 }
 
-@Component
+@Component({
+  mixins: [validationMixin]
+})
 export default class SiteFooter extends Vue {
   private contactForm: IContactForm = {
     email: '',
@@ -76,6 +86,22 @@ export default class SiteFooter extends Vue {
       url: 'https://gurushots.com/ella.parsons/photos'
     }
   ];
+
+  @Validations()
+  private validations = {
+    contactForm: {
+      email: {
+        email,
+        required
+      },
+      name: {
+        required
+      },
+      message: {
+        required
+      }
+    },
+  };
 
   private get year(): number {
     return new Date().getFullYear();
@@ -158,8 +184,14 @@ export default class SiteFooter extends Vue {
 
   &--ios {
     > li {
-      &:not(:first-of-type):not(:last-of-type) {
-        margin: 0 0.5rem;
+      margin: 0 0.5rem;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
       }
     }
   }
@@ -189,6 +221,7 @@ export default class SiteFooter extends Vue {
     position: absolute;
     top: -5px;
     margin-left: 3px;
+    user-select: none;
   }
 
   svg {
@@ -263,6 +296,12 @@ export default class SiteFooter extends Vue {
 
   &--message {
     grid-area: message;
+  }
+
+  &--error {
+    margin: 0.2rem 0 0 0;
+    font-weight: 700;
+    color: var(--color-red);
   }
 
   .btn {
