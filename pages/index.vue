@@ -27,8 +27,6 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 import { isIOS, isSafari } from '@/helpers/safari';
 
-type Dictionary<T> = { [key: string]: T };
-
 @Component
 export default class Index extends Vue {
   private homepage!: any;
@@ -51,7 +49,7 @@ export default class Index extends Vue {
   }
 
   private bgImage(image: any): string {
-    const screenMaxWidth: Dictionary<number> = {
+    const screenMaxWidth: Record<string, number> = {
       laptop: 1920,
       tablet: 1024,
       mobile: 768
