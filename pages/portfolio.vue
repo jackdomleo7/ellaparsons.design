@@ -21,7 +21,13 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 
-@Component
+@Component({
+  head() {
+    return {
+      title: 'Portfolio'
+    }
+  }
+})
 export default class Portfolio extends Vue {
   private portfolio!: any;
 

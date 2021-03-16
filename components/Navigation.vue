@@ -44,6 +44,10 @@ export default class Navigation extends Vue {
     {
       text: 'Portfolio',
       url: '/portfolio'
+    },
+    {
+      text: 'Photography',
+      url: '/photography'
     }
   ];
 
