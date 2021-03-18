@@ -27,7 +27,13 @@
 import { Vue, Component } from 'nuxt-property-decorator';
 import { isIOS, isSafari } from '@/helpers/safari';
 
-@Component
+@Component({
+  head() {
+    return {
+      title: 'Home'
+    }
+  }
+})
 export default class Index extends Vue {
   private homepage!: any;
 

@@ -1,12 +1,10 @@
 require('dotenv').config();
 
-const title = 'Ella Parsons - Designer & Photographer';
-
 export default {
   ssr: false,
   target: 'static',
   head: {
-    title: title,
+    titleTemplate: '%s | Ella Parsons - Designer & Photographer',
   },
   css: [
     'modern-normalize/modern-normalize.css',
@@ -28,7 +26,6 @@ export default {
     meta: {
       description: 'Hi, I\'m Ella Parsons from Nottingham, UK. I love anything and everything to do with design, taking photos and being outdoors.',
       themeColor: '#ffc0cb',
-      ogTitle: title,
       ogHost: process.env.BASE_URL
     }
   },
