@@ -16,7 +16,7 @@
     "dev": "nuxt --open",
     "build": "nuxt build --modern=client",
     "start": "nuxt start",
-    "generate": "nuxt generate -m",
+    "generate": "rimraf dist && nuxt generate -m",
     "test": "jest",
     "deploy": "npm run generate && push-dir --dir=dist --branch=gh-pages --cleanup"
   },
@@ -51,6 +51,7 @@
     "nuxt-property-decorator": "^2.9.1",
     "prettier": "^2.3.0",
     "push-dir": "^0.4.1",
+    "rimraf": "^3.0.2",
     "sass": "^1.34.0",
     "sass-loader": "^10.2.0",
     "ts-jest": "^26.5.6",
