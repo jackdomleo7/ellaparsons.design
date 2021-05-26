@@ -1,25 +1,22 @@
 <template>
   <main>
-    <p v-if="$fetchState.pending">Fetching data</p>
-    <div v-else>
-      <section class="parallax name" :class="{'parallax--ios': iOS && safari}" :style="{ backgroundImage: `url(${bgImage(homepage.data.header_background_image)})` }">
-        <div class="name__fixed">
-          <h1 class="name__heading">{{ homepage.data.page_header[0].text }}</h1>
-        </div>
-      </section>
-      <section id="about" class="about parallax center" :class="{'parallax--ios': iOS && safari}" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_background_image)})` }">
-        <div>
-          <h2>{{ homepage.data.about_header[0].text }}</h2>
-          <prismic-rich-text class="about__description" :class="{'about__description--ios': safari}" :field="homepage.data.about_description" />
-        </div>
-      </section>
-      <section id="featured" class="featured">
-        <h2>{{ homepage.data.featured_header[0].text }}</h2>
-        <ul>
-          <FeaturedItem v-for="(featured, index) in homepage.data.featured" :key="featured.header[0].text" :featured="featured" :aria-setsize="homepage.data.featured.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(featured.background_image)})` }"></FeaturedItem>
-        </ul>
-      </section>
-    </div>
+    <section class="parallax name" :class="{'parallax--ios': iOS && safari}" :style="{ backgroundImage: `url(${bgImage(homepage.data.header_background_image)})` }">
+      <div class="name__fixed">
+        <h1 class="name__heading">{{ homepage.data.page_header[0].text }}</h1>
+      </div>
+    </section>
+    <section id="about" class="about parallax center" :class="{'parallax--ios': iOS && safari}" :style="{ backgroundImage: `url(${bgImage(homepage.data.about_background_image)})` }">
+      <div>
+        <h2>{{ homepage.data.about_header[0].text }}</h2>
+        <prismic-rich-text class="about__description" :class="{'about__description--ios': safari}" :field="homepage.data.about_description" />
+      </div>
+    </section>
+    <section id="featured" class="featured">
+      <h2>{{ homepage.data.featured_header[0].text }}</h2>
+      <ul>
+        <FeaturedItem v-for="(featured, index) in homepage.data.featured" :key="featured.header[0].text" :featured="featured" :aria-setsize="homepage.data.featured.length" :aria-posinset="index + 1" :style="{ backgroundImage: `url(${bgImage(featured.background_image)})` }"></FeaturedItem>
+      </ul>
+    </section>
   </main>
 </template>
 
@@ -35,14 +32,12 @@ import { isIOS, isSafari } from '@/helpers/safari';
   }
 })
 export default class Index extends Vue {
-  private homepage!: any;
-
-  async fetch() {
-    try {
-      this.homepage = await this.$prismic.api.getSingle('homepage');
-    }
-    catch(e) {
-      console.error(e);
+  async asyncData ({ $prismic, error }: any) {
+    const homepage = await $prismic.api.getSingle('homepage')
+    if (homepage) {
+      return { homepage }
+    } else {
+      error({ statusCode: 404, message: 'Page not found' })
     }
   }
 
