@@ -30,6 +30,7 @@ export default class Photography extends Vue {
   }
 
   private imagesLatestFirst(): any {
+    // @ts-ignore
     return this.photography.data.pictures.reverse();
   }
 }

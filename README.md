@@ -8,7 +8,6 @@
 - `cd ellaparsons.design`
 - `npm i`
 - Create a new `.env` file in the root of the project with the following variables (this file is ignored from git):
-  - `BASE_URL`
   - `GOOGLE_ANALYTICS_ID`
   - `PRISMIC_ACCESS_TOKEN`
   - `FORMSPREE_ENDPOINT`

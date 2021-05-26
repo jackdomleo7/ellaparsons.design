@@ -1,4 +1,5 @@
 require('dotenv').config();
+const siteconfig = require('./siteconfig.json')
 
 export default {
   ssr: false,
@@ -26,7 +27,7 @@ export default {
     meta: {
       description: 'Hi, I\'m Ella Parsons from Nottingham, UK. I love anything and everything to do with design, taking photos and being outdoors.',
       themeColor: '#ffc0cb',
-      ogHost: process.env.BASE_URL
+      ogHost: siteconfig.base_url
     }
   },
   googleAnalytics: {
@@ -48,7 +49,7 @@ export default {
     Allow: '/'
   },
   sitemap: {
-    hostname: process.env.BASE_URL,
+    hostname: siteconfig.base_url,
     exclude: ['/_icons', '/preview']
   },
   build: {

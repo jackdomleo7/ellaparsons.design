@@ -36,6 +36,7 @@ export default class Portfolio extends Vue {
   }
 
   private imagesLatestFirst(): any {
+    // @ts-ignore
     return this.portfolio.data.images.reverse();
   }
 }
