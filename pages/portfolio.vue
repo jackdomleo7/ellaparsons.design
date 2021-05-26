@@ -1,20 +1,17 @@
 <template>
   <main>
-    <p v-if="$fetchState.pending">Fetching data</p>
-    <template v-else>
-      <h1>{{ portfolio.data.page_header[0].text }}</h1>
-      <ul class="portfolio">
-        <li v-for="(image, index) in imagesLatestFirst()" :key="image.header[0].text" :aria-setsize="portfolio.data.images.length" :aria-posinset="index + 1">
-          <figure>
-            <prismic-image :field="image.image" loading="lazy" height="343" width="343" />
-            <figcaption>
-              <h2>{{ image.header[0].text }}</h2>
-              <prismic-rich-text :field="image.caption" />
-            </figcaption>
-          </figure>
-        </li>
-      </ul>
-    </template>
+    <h1>{{ portfolio.data.page_header[0].text }}</h1>
+    <ul class="portfolio">
+      <li v-for="(image, index) in imagesLatestFirst()" :key="image.header[0].text" :aria-setsize="portfolio.data.images.length" :aria-posinset="index + 1">
+        <figure>
+          <prismic-image :field="image.image" loading="lazy" height="343" width="343" />
+          <figcaption>
+            <h2>{{ image.header[0].text }}</h2>
+            <prismic-rich-text :field="image.caption" />
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
   </main>
 </template>
 
@@ -29,14 +26,12 @@ import { Component, Vue } from 'nuxt-property-decorator';
   }
 })
 export default class Portfolio extends Vue {
-  private portfolio!: any;
-
-  async fetch() {
-    try {
-      this.portfolio = await this.$prismic.api.getSingle('portfolio');
-    }
-    catch(e) {
-      console.error(e);
+  async asyncData ({ $prismic, error }: any) {
+    const portfolio = await $prismic.api.getSingle('portfolio')
+    if (portfolio) {
+      return { portfolio }
+    } else {
+      error({ statusCode: 404, message: 'Page not found' })
     }
   }
 
