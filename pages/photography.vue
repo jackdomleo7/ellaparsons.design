@@ -1,11 +1,14 @@
 <template>
   <main>
-    <h1>{{ photography.data.page_header[0].text }}</h1>
-    <ul class="photography">
-      <li v-for="(picture, index) in imagesLatestFirst()" :key="picture" :aria-setsize="photography.data.pictures.length" :aria-posinset="index + 1">
-        <prismic-image :field="picture.picture" loading="lazy" height="330" width="586" />
-      </li>
-    </ul>
+    <p v-if="$fetchState.pending">Fetching data</p>
+    <template v-else>
+      <h1>{{ photography.data.page_header[0].text }}</h1>
+      <ul class="photography">
+        <li v-for="(picture, index) in imagesLatestFirst()" :key="picture" :aria-setsize="photography.data.pictures.length" :aria-posinset="index + 1">
+          <prismic-image :field="picture.picture" loading="lazy" height="330" width="586" />
+        </li>
+      </ul>
+    </template>
   </main>
 </template>
 
@@ -20,17 +23,18 @@ import { Component, Vue } from 'nuxt-property-decorator';
   }
 })
 export default class Photography extends Vue {
-  async asyncData ({ $prismic, error }: any) {
-    const photography = await $prismic.api.getSingle('photography')
-    if (photography) {
-      return { photography }
-    } else {
-      error({ statusCode: 404, message: 'Page not found' })
+  private photography!: Record<string, any>;
+
+  async fetch(): Promise<void> {
+    try {
+      const photography = await $prismic.api.getSingle('photography')
+    }
+    catch(e) {
+      console.error(e)
     }
   }
 
   private imagesLatestFirst(): any {
-    // @ts-ignore
     return this.photography.data.pictures.reverse();
   }
 }
