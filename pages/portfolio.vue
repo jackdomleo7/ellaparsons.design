@@ -33,7 +33,7 @@ export default class Portfolio extends Vue {
 
   async fetch(): Promise<void> {
     try {
-      const portfolio = await this.$prismic.api.getSingle('portfolio')
+      this.portfolio = await this.$prismic.api.getSingle('portfolio')
     }
     catch(e) {
       console.error(e)
