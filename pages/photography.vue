@@ -27,7 +27,7 @@ export default class Photography extends Vue {
 
   async fetch(): Promise<void> {
     try {
-      const photography = await $prismic.api.getSingle('photography')
+      const photography = await this.$prismic.api.getSingle('photography')
     }
     catch(e) {
       console.error(e)
