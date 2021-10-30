@@ -84,6 +84,11 @@ export default class SiteFooter extends Vue {
       text: 'GuruShots',
       img: 'gurushots.png',
       url: 'https://gurushots.com/ella.parsons/photos'
+    },
+    {
+      text: 'Etsy',
+      icon: 'etsy',
+      url: 'https://www.etsy.com/uk/shop/NailEnvyDesign'
     }
   ];
 
