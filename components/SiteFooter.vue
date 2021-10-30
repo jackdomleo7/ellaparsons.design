@@ -108,7 +108,7 @@ export default class SiteFooter extends Vue {
   }
 
   private get formspree(): string {
-    return `https://formspree.io/${process.env.FORMSPREE_ENDPOINT}`;
+    return `https://formspree.io/f/${process.env.FORMSPREE_ENDPOINT}`;
   }
 
   private get safari(): boolean {
